@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 1618362861}
   - component: {fileID: 1618362860}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   - {fileID: 132176032}
   - {fileID: 487703266}
   - {fileID: 1979904340}
-  pathPoint: 0
+  State: 0
 --- !u!195 &1618362861
 NavMeshAgent:
   m_ObjectHideFlags: 0
