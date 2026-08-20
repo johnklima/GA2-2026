@@ -59,7 +59,7 @@ public class NavMeshDriver : MonoBehaviour
         {
             timer = Time.time;            
         }
-        if (Time.time - timer > 1.0f && timer > 0)
+        if (Time.time - timer > 2.0f && timer > 0)
         {
             timer = -1.0f;
             pathIndex = Random.Range(0, PathTarget.Length);
