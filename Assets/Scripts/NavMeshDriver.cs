@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,7 +15,7 @@ public class NavMeshDriver : MonoBehaviour
     //zero state is path following
     public int State = 0;
 
-    private float timer = -1.0f;
+    public float timer = 1;
 
     //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,23 +55,31 @@ public class NavMeshDriver : MonoBehaviour
     }
     void RandomPath()
     {
-        //arrived?
-        if (agent.remainingDistance < 1.0f && timer < 0)
-        {
-            timer = Time.time;            
-        }
-        if (Time.time - timer > 2.0f && timer > 0)
-        {
-            timer = -1.0f;
-            pathIndex = Random.Range(0, PathTarget.Length);
-        }
-
         //continuosly update the position, as the target might change or be moved
         agent.SetDestination(PathTarget[pathIndex].position);
 
 
     }
 
+    public void ChangeTarget(float seconds)
+    {
+        StartCoroutine(WaitAtTarget(seconds));
+
+    }
+    IEnumerator WaitAtTarget(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        //new path
+        int curIndex = pathIndex;
+        while (curIndex == pathIndex) 
+        {
+            pathIndex = Random.Range(0, PathTarget.Length);
+        }        
+        agent.SetDestination(PathTarget[pathIndex].position);
+        agent.isStopped = false;
+        
+    }
     void LoopPath()
     {
         //arrived?
