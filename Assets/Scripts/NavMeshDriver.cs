@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-
+using System.Collections;
 
 public class NavMeshDriver : MonoBehaviour
 {
@@ -55,6 +55,7 @@ public class NavMeshDriver : MonoBehaviour
     void RandomPath()
     {
         //arrived?
+        /*
         if (agent.remainingDistance < 1.0f && timer < 0)
         {
             timer = Time.time;            
@@ -64,13 +65,33 @@ public class NavMeshDriver : MonoBehaviour
             timer = -1.0f;
             pathIndex = Random.Range(0, PathTarget.Length);
         }
+        */
+
 
         //continuosly update the position, as the target might change or be moved
         agent.SetDestination(PathTarget[pathIndex].position);
 
 
     }
+    public void ChangeTarget(float seconds)
+    {
+        StartCoroutine(WaitAtTarget(seconds));
 
+    }
+    IEnumerator WaitAtTarget(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        //new path
+        int curIndex = pathIndex;
+        while (curIndex == pathIndex)
+        {
+            pathIndex = Random.Range(0, PathTarget.Length);
+        }
+        agent.SetDestination(PathTarget[pathIndex].position);
+        agent.isStopped = false;
+
+    }
     void LoopPath()
     {
         //arrived?
