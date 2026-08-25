@@ -6,34 +6,74 @@ public class SwordInteractable : Interactable
 {
 
     public GameObject lore;
-    public GameObject popup;
+    Animator animator;
+    public bool playPull = false;  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //can only find if active, there is another way I can handle this
         //but it is a big anoyance
-        lore = GameObject.FindGameObjectWithTag("Lore");
+        lore = Manipulator.lore;
         lore.SetActive(false);
 
-        popup = GameObject.FindGameObjectWithTag("Popup");
+
+        popup = Manipulator.popup;
         popup.SetActive(false);
+
+        animator = GetComponent<Animator>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F) && isHovering)
+        {
+            Debug.Log("set anim param");
+            isInteracting = true;
+            playPull = true;
+
+
+        }
+
+        pullSword();
+
+    }
+
+    public void pullSword()
+    {
+        if (isInteracting && isHovering)
+        {
+            Debug.Log("I am interacting");
+            if (playPull)
+            {
+                playPull = false;
+                animator.SetTrigger("PullSword");
+                Debug.Log("play the animation");
+
+            }
+        }
 
     }
 
     public override void Hit()
     {
+        
+        
         base.Hit();
+
+
         Debug.Log("Sword is getting Hit");
         lore.SetActive(true);
         Text textobj = lore.transform.GetChild(0).GetComponent<Text>();
-        textobj.text = text;
+        textobj.text = "";
+        for (int i = 0; i < text.Length; i++)
+        {
+            textobj.text += "\n" + text[i];
+        }
+        
+        
     }
     public override void UnHit()
     {

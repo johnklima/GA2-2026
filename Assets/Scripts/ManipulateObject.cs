@@ -4,6 +4,8 @@ public class ManipulateObject : MonoBehaviour
 {
 
     public Interactable currentInteract;
+    public GameObject lore;
+    public GameObject popup;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
