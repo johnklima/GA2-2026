@@ -1,19 +1,16 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class ManipulateObject : MonoBehaviour
 {
 
- 
-    public Interactable currentInteract ;
-    
+    public Interactable currentInteract;
+    public GameObject lore;
+    public GameObject popup;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-       
     }
 
     // Update is called once per frame
@@ -31,7 +28,8 @@ public class ManipulateObject : MonoBehaviour
             Debug.Log("hit " + hit.transform.name);
 
             currentInteract = hit.transform.GetComponent<Interactable>();
-            currentInteract.Hit();            
+            currentInteract.Hit();
+            
         }
         else if (currentInteract)
         {

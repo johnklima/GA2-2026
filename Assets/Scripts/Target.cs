@@ -13,12 +13,13 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             Debug.Log(transform.name + " has met " + other.name + " wait time = " + waitTime);
             NavMeshDriver driver = other.transform.GetComponent<NavMeshDriver>();
             driver.ChangeTarget(waitTime);
-        }
 
+        }
+            
     }
 }

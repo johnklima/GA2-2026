@@ -1,31 +1,34 @@
 using UnityEngine;
 using UnityEngine.UI;
+
+//this is a concrete interactable
 public class SwordInteractable : Interactable
 {
+
     public GameObject lore;
     Animator animator;
-    bool playPull = false;  
+    public bool playPull = false;  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //can only find if active, there is another way I can handle this
-        //but it is a big anoyance at this point - this will work
-        lore = GameObject.FindGameObjectWithTag("Lore");
+        //but it is a big anoyance
+        lore = Manipulator.lore;
         lore.SetActive(false);
 
-        popup = GameObject.FindGameObjectWithTag("Popup");
+
+        popup = Manipulator.popup;
         popup.SetActive(false);
 
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && isHovering)
         {
             Debug.Log("set anim param");
             isInteracting = true;
@@ -33,29 +36,44 @@ public class SwordInteractable : Interactable
 
 
         }
-        if (isInteracting)
+
+        pullSword();
+
+    }
+
+    public void pullSword()
+    {
+        if (isInteracting && isHovering)
         {
             Debug.Log("I am interacting");
-            if (isInteracting && playPull)
+            if (playPull)
             {
-                playPull = false;  
+                playPull = false;
                 animator.SetTrigger("PullSword");
                 Debug.Log("play the animation");
 
             }
         }
 
-        
-        
     }
 
     public override void Hit()
     {
+        
+        
         base.Hit();
+
+
         Debug.Log("Sword is getting Hit");
         lore.SetActive(true);
         Text textobj = lore.transform.GetChild(0).GetComponent<Text>();
-        textobj.text = text;
+        textobj.text = "";
+        for (int i = 0; i < text.Length; i++)
+        {
+            textobj.text += "\n" + text[i];
+        }
+        
+        
     }
     public override void UnHit()
     {
