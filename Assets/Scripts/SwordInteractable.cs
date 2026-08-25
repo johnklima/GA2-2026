@@ -40,7 +40,7 @@ public class SwordInteractable : Interactable
             {
                 playPull = false;  
                 animator.SetTrigger("PullSword");
-                Debug.Log("play the fuckng animation");
+                Debug.Log("play the animation");
 
             }
         }
