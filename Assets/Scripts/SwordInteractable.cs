@@ -10,7 +10,7 @@ public class SwordInteractable : Interactable
     void Start()
     {
         //can only find if active, there is another way I can handle this
-        //but it is a big anoyance
+        //but it is a big anoyance at this point - this will work
         lore = GameObject.FindGameObjectWithTag("Lore");
         lore.SetActive(false);
 

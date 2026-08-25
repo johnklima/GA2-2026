@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class ManipulateObject : MonoBehaviour
 {
 
-    LayerMask layer;
+ 
     public Interactable currentInteract ;
     
 
@@ -13,7 +13,7 @@ public class ManipulateObject : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        layer = LayerMask.NameToLayer("Interact");
+       
     }
 
     // Update is called once per frame

@@ -1714,7 +1714,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Interact
+  m_Text: Press F to Interact
 --- !u!222 &1165864949
 CanvasRenderer:
   m_ObjectHideFlags: 0
