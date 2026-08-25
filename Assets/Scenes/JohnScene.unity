@@ -238,11 +238,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Excalibur
   text: []
-  popup: {fileID: 0}
+  popup: {fileID: 831095559}
   isInteracting: 0
   Manipulator: {fileID: 961739755}
   isHovering: 0
-  lore: {fileID: 0}
+  lore: {fileID: 108553406}
+  playPull: 0
+  key: {fileID: 577416590}
 --- !u!1 &108553406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4655428122252159713, guid: adcff36b55f7dee48a7f4bd1ee182e74, type: 3}
       propertyPath: m_Name
-      value: Chair
+      value: ChairKey
       objectReference: {fileID: 0}
     - target: {fileID: 5463068222914064475, guid: adcff36b55f7dee48a7f4bd1ee182e74, type: 3}
       propertyPath: m_LocalScale.x
@@ -1164,6 +1166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b114e6cfb0187f469c604f5e8e1f19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!4 &577416590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5463068222914064475, guid: adcff36b55f7dee48a7f4bd1ee182e74, type: 3}
+  m_PrefabInstance: {fileID: 577416583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604712593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,6 +1635,7 @@ MonoBehaviour:
   Manipulator: {fileID: 961739755}
   isHovering: 0
   lore: {fileID: 0}
+  playPull: 0
 --- !u!95 &923424911
 Animator:
   serializedVersion: 7

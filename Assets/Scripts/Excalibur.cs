@@ -4,7 +4,7 @@ public class Excalibur : SwordInteractable
 {
 
     public Transform key;
-
+   
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) )
@@ -34,7 +34,8 @@ public class Excalibur : SwordInteractable
                     playPull = true;
 
                     inv.AddToInventory(transform);
-
+                    
+                  
                 }
             }
            
