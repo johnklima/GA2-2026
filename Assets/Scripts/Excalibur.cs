@@ -26,7 +26,6 @@ public class Excalibur : SwordInteractable
                        
                 }
 
-
                 if (hasKey) 
                 {
                     Debug.Log("set anim param");
