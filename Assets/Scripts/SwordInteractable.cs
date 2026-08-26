@@ -14,12 +14,12 @@ public class SwordInteractable : Interactable
     void Start()
     {
        
-        Init(popMsg);
+        Init();
     }
 
-    public override void Init(string popString)
+    public override void Init()
     {
-        base.Init(popString);
+        base.Init();
 
         //can only find if active, there is another way I can handle this
         //but it is a big anoyance

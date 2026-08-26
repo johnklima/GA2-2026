@@ -11,20 +11,16 @@ public abstract class Interactable : MonoBehaviour
 
     private void Start()
     {
-        Init(popMsg);
+        Init();
     }
 
 
     //overideable replacement for start
-    public virtual void Init(string msg)  
+    public virtual void Init()  
     {
-        Debug.Log("POPUP new msg " + msg);
-
-        popMsg = msg;//keep track of it
+ 
         popup = Manipulator.popup;
-        popup.SetActive(false);
-
-     
+        popup.SetActive(false);     
     }
 
 

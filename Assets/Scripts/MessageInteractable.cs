@@ -6,13 +6,13 @@ public class MessageInteractable : Interactable
     void Start()
     {
         
-        Init(popMsg);
+        Init();
   
     }
-    public override void Init(string msg)
+    public override void Init()
     {
-        Debug.Log("override init " + msg);
-        base.Init(popMsg);
+   
+        base.Init();
 
     }
     // Update is called once per frame
