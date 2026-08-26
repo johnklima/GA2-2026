@@ -125,7 +125,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1519122761}
     m_Modifications:
     - target: {fileID: 1917391421932174, guid: 1eb47ee7fb4e0224482d77ed61559671, type: 3}
       propertyPath: m_Name
@@ -149,15 +149,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4855783266589030, guid: 1eb47ee7fb4e0224482d77ed61559671, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.02
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 4855783266589030, guid: 1eb47ee7fb4e0224482d77ed61559671, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.99
+      value: 2.27
       objectReference: {fileID: 0}
     - target: {fileID: 4855783266589030, guid: 1eb47ee7fb4e0224482d77ed61559671, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.66
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 4855783266589030, guid: 1eb47ee7fb4e0224482d77ed61559671, type: 3}
       propertyPath: m_LocalRotation.w
@@ -237,14 +237,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c50795348123d2409e427f3f11205e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Excalibur
-  text: []
-  popup: {fileID: 831095559}
+  text:
+  - This is a sword
+  - It is not any sword, it is Excalibur!!
+  - The famed sword of Queen Arthurie
+  - You will need a chair to Draw the sword and become the Queen
+  popup: {fileID: 0}
   isInteracting: 0
   Manipulator: {fileID: 961739755}
   isHovering: 0
-  lore: {fileID: 108553406}
+  lore: {fileID: 0}
   playPull: 0
   key: {fileID: 577416590}
+--- !u!4 &53976829 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4855783266589030, guid: 1eb47ee7fb4e0224482d77ed61559671, type: 3}
+  m_PrefabInstance: {fileID: 53976818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &108553406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,9 +2231,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3510097049968602542, guid: b6ddfbfd1ea362c4bb32e531cb6213cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 53976829}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6ddfbfd1ea362c4bb32e531cb6213cb, type: 3}
+--- !u!4 &1519122761 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3510097049968602542, guid: b6ddfbfd1ea362c4bb32e531cb6213cb, type: 3}
+  m_PrefabInstance: {fileID: 1423150346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1585269667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2243,7 +2260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.0447965
+      value: -3.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3312,6 +3329,5 @@ SceneRoots:
   - {fileID: 320868652}
   - {fileID: 1419536602}
   - {fileID: 1423150346}
-  - {fileID: 53976818}
   - {fileID: 1939350399}
   - {fileID: 577416583}
