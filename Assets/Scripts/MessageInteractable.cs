@@ -6,6 +6,7 @@ public class MessageInteractable : Interactable
     
     
     public bool isInRange = false;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,15 +32,15 @@ public class MessageInteractable : Interactable
     }
 
 
-    bool isOwned = false;
-    bool isViewing = false;
+    public bool isOwned = false;
+    public bool isViewing = false;
     Vector3 startPos = Vector3.zero;
     Vector3 startScale = Vector3.one;
     float T = 0;
     // Update is called once per frame
     void Update()
     {
-        if (isInRange)
+        if (isInRange && !isViewing)
         {
             Debug.Log("is in range of bottle");
             if (Input.GetKeyDown(KeyCode.F) && isHovering)
@@ -90,6 +91,25 @@ public class MessageInteractable : Interactable
             if (isViewing) 
             {
                 Debug.Log("Bottle has arrived");
+                if (Input.GetKeyDown(KeyCode.G) )
+                {
+                    Debug.Log("HELLO F");
+                    isInteracting = false;
+                    isHovering = false;
+
+                    FreeCamera camctrl = Camera.main.GetComponent<FreeCamera>();
+                    Inventory inv = Camera.main.GetComponent<Inventory>();
+                    inv.AddToInventory(transform);
+                    transform.position = Vector3.down * 666;
+                    transform.gameObject.SetActive(false);
+                    popup.SetActive(false);
+
+                    camctrl.lookCamera = false;  //release the camera
+
+                    isViewing = false;
+                }
+
+
             }
         }
     }
