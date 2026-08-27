@@ -4,27 +4,31 @@ using UnityEngine.UI;
 //this is a concrete interactable
 public class SwordInteractable : Interactable
 {
-
     public GameObject lore;
     Animator animator;
-    public bool playPull = false;  
+    public bool playPull = false;
+
+    public string[] story;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+       
+        Init();
+    }
+
+    public override void Init()
+    {
+        base.Init();
+
         //can only find if active, there is another way I can handle this
         //but it is a big anoyance
         lore = Manipulator.lore;
         lore.SetActive(false);
 
-
-        popup = Manipulator.popup;
-        popup.SetActive(false);
-
         animator = GetComponent<Animator>();
 
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -34,13 +38,12 @@ public class SwordInteractable : Interactable
             isInteracting = true;
             playPull = true;
 
-
+            pullSword();
         }
 
-        pullSword();
+       
 
     }
-
     public void pullSword()
     {
         if (isInteracting && isHovering)
@@ -57,6 +60,7 @@ public class SwordInteractable : Interactable
 
     }
 
+
     public override void Hit()
     {
         
@@ -68,11 +72,10 @@ public class SwordInteractable : Interactable
         lore.SetActive(true);
         Text textobj = lore.transform.GetChild(0).GetComponent<Text>();
         textobj.text = "";
-        for (int i = 0; i < text.Length; i++)
+        for (int i = 0; i < story.Length; i++)
         {
-            textobj.text += "\n" + text[i];
-        }
-        
+            textobj.text += "\n" + story[i];
+        }       
         
     }
     public override void UnHit()
