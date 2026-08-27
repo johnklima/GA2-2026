@@ -5,7 +5,7 @@ public class BottleTrigger : MonoBehaviour
     public Transform theBottle;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "CameraCollider")
+        if (other.tag == "MainCamera")
         {
             Debug.Log("In range of bottle");
             MessageInteractable interactable = theBottle.GetComponent<MessageInteractable>();
@@ -16,7 +16,7 @@ public class BottleTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "CameraCollider")
+        if (other.tag == "MainCamera")
         {
             Debug.Log("Out of range of bottle");
             MessageInteractable interactable = theBottle.GetComponent<MessageInteractable>();

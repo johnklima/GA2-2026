@@ -45,5 +45,12 @@ public class Excalibur : SwordInteractable
         pullSword();
     }
 
+    public override void UnHit()
+    {
+        //get over it, not sure why
+        base.UnHit();
+        lore.SetActive(false);
+        popup.SetActive(false);
 
+    }
 }
