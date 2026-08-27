@@ -6,13 +6,15 @@ public class MessageInteractable : Interactable
     void Start()
     {
         
-        Init();
+        Init(); //call my init...
   
     }
     public override void Init()
     {
    
-        base.Init();
+        base.Init();    //...which calls the base init
+
+        //and can also do anything specific to this type of interactable
 
     }
     // Update is called once per frame

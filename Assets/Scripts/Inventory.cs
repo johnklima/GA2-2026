@@ -20,10 +20,18 @@ public class Inventory : MonoBehaviour
 
     public void AddToInventory(Transform thing)
     {
-        things[curThing] = thing;
-        curThing++;
-        if (curThing == things.Length - 1 )
+
+        //wrap around if too many
+        //could also assume that inv is full and not add new
+        if (curThing == things.Length - 1)
             curThing = 0;
+
+        //add to the array
+        things[curThing] = thing;
+        //next slot
+        curThing++;
+        
+        
 
     }
 }

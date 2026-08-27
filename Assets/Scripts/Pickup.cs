@@ -15,11 +15,14 @@ public class Pickup : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Collider")
+        if(other.tag == "Collider")  //in this demo it is the box child of the camera
         {
             Debug.Log("pickup hit " + other.name);
+            //get the camera parent of the box and its inventory
             Inventory inv = other.transform.parent.GetComponent<Inventory>();
+            //add the pickup
             inv.AddToInventory(transform);
+            //hide it
             transform.position = Vector3.up * -666.0f;
         }
     }
