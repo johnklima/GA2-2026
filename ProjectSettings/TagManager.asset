@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Popup
   - Lore
+  - Collider
+  - CameraCollider
   layers:
   - Default
   - TransparentFX

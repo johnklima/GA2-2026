@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MessageInteractable : Interactable
 {
+    
+    
+    public bool isInRange = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,9 +21,76 @@ public class MessageInteractable : Interactable
         //and can also do anything specific to this type of interactable
 
     }
+    public override void Hit()
+    {
+        if (isInRange) 
+        {
+            base.Hit();
+        }
+        
+    }
+
+
+    bool isOwned = false;
+    bool isViewing = false;
+    Vector3 startPos = Vector3.zero;
+    Vector3 startScale = Vector3.one;
+    float T = 0;
     // Update is called once per frame
     void Update()
     {
-        
+        if (isInRange)
+        {
+            Debug.Log("is in range of bottle");
+            if (Input.GetKeyDown(KeyCode.F) && isHovering)
+            {
+                Debug.Log("set anim param");
+                isInteracting = true;
+
+                FreeCamera camctrl = Camera.main.GetComponent<FreeCamera>();
+                camctrl.lookCamera = true;
+                
+
+            }
+
+            //final position and scale of the bottle
+            Vector3 campos = Camera.main.transform.position;
+            Vector3 fwd = Camera.main.transform.forward;
+            Vector3 newpos = campos + fwd;
+            Vector3 newscale = Vector3.one * 0.5f;
+
+            
+
+            if (isInteracting && !isOwned)
+            {
+                //i used this to snap
+                isOwned = true; 
+                startPos = transform.position;
+                startScale = transform.localScale;           
+            }
+
+            if (isOwned)
+            {
+                //now lets interpolate method 1
+                //transform.position = Vector3.Lerp(transform.position, newpos, Time.deltaTime);
+                //transform.localScale = Vector3.Lerp(transform.localScale, newscale, Time.deltaTime);
+
+                //method 2
+                T += Time.deltaTime;
+                transform.position = Vector3.Lerp(startPos, newpos, T);
+                transform.localScale = Vector3.Lerp(startScale, newscale, T);
+
+                if (T >= 1.0f)
+                {
+                    isOwned = false;
+                    isViewing = true;
+                }
+            }
+
+            if (isViewing) 
+            {
+                Debug.Log("Bottle has arrived");
+            }
+        }
     }
 }

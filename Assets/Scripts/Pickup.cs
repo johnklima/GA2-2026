@@ -15,7 +15,7 @@ public class Pickup : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Collider")  //in this demo it is the box child of the camera
+        if(other.tag == "CameraCollider")  //in this demo it is the box child of the camera
         {
             Debug.Log("pickup hit " + other.name);
             //get the camera parent of the box and its inventory

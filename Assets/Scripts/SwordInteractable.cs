@@ -38,10 +38,10 @@ public class SwordInteractable : Interactable
             isInteracting = true;
             playPull = true;
 
-
+            pullSword();
         }
 
-        pullSword();
+       
 
     }
     public void pullSword()
