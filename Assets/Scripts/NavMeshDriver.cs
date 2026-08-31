@@ -25,7 +25,8 @@ public class NavMeshDriver : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         //tell it where to go first
-        agent.SetDestination(PathTarget[pathIndex].position);
+        if(PathTarget.Length > 0)
+            agent.SetDestination(PathTarget[pathIndex].position);
 
     }
 
@@ -66,6 +67,9 @@ public class NavMeshDriver : MonoBehaviour
     }
     void RandomPath()
     {
+
+        if (PathTarget.Length == 0)
+            return;
         //arrived?
         /*
         if (agent.remainingDistance < 1.0f && timer < 0)
@@ -81,7 +85,8 @@ public class NavMeshDriver : MonoBehaviour
 
 
         //continuosly update the position, as the target might change or be moved
-        agent.SetDestination(PathTarget[pathIndex].position);
+        if (PathTarget[pathIndex])
+            agent.SetDestination(PathTarget[pathIndex].position);
 
 
     }
