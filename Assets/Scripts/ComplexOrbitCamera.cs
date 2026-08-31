@@ -46,6 +46,12 @@ public class ComplexOrbitCamera : MonoBehaviour
 
         pointCam.transform.localPosition = pos;
 
+        //now adjust the stick to show more forward
+        float z = Mathf.Abs(pos.z)/5;
+        pos = transform.localPosition ;
+        pos.z = z;
+        transform.localPosition = pos ;
+
         float deltay = Input.GetAxis("Horizontal");
 
         Vector3 rot = transform.rotation.eulerAngles;
