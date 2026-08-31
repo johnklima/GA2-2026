@@ -11,6 +11,8 @@ public class NavMeshDriver : MonoBehaviour
     //index in list of targets
     private int pathIndex = 0;
 
+    public Transform MainTarget;
+
     //zero state is path following
     public int State = 0;
 
@@ -30,18 +32,28 @@ public class NavMeshDriver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (State == 0)
+        if (State == 0)     //pathing
         {
             RandomPath();  
         }
-        if (State == 1)
+        if (State == 1)     //simple mouse
         {
             if (Input.GetMouseButtonDown(0))
             {
                 SetDestinationToMousePosition();
             }
         }
+        if(State == 2)      //player
+        {
+            SetDestinationToMainTarget();
+        }
     }
+    void SetDestinationToMainTarget()
+    {
+        agent.SetDestination(MainTarget.position);
+    }
+
+
     void SetDestinationToMousePosition()
     {
         RaycastHit hit;
