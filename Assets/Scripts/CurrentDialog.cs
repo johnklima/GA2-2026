@@ -19,4 +19,25 @@ public class CurrentDialog : MonoBehaviour
         CurrentBranch.GetChild(1).gameObject.SetActive(true);
 
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+          recurseChildren(transform);
+        }
+    }
+
+    void recurseChildren(Transform T)
+    {
+        foreach (Transform child in T)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                Debug.Log(child.name);
+            }            
+            recurseChildren(child);
+        }
+
+    }
 }

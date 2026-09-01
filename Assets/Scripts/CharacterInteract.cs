@@ -20,7 +20,26 @@ public class CharacterInteract : MonoBehaviour
             display.text = dialog;
 
             DialogTree.CurrentBranch = Branch;
-                    
+
+            //pick a free formation point to follow
+            Transform formation = other.transform.GetChild(0);
+            Transform usethis = other.transform;
+
+            foreach (Transform F in formation)
+            {
+                if (F.GetComponent<FormationPoint>().occupier == null)
+                {
+                    F.GetComponent<FormationPoint>().occupier = Character;
+                    usethis = F;
+                    break;
+                }
+
+            }
+
+            Character.GetComponent<NavMeshDriver>().MainTarget = usethis;
+            Character.GetComponent<NavMeshDriver>().State = 2;
+
+
         }
     }
 }
