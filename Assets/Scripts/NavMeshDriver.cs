@@ -70,18 +70,7 @@ public class NavMeshDriver : MonoBehaviour
 
         if (PathTarget.Length == 0)
             return;
-        //arrived?
-        /*
-        if (agent.remainingDistance < 1.0f && timer < 0)
-        {
-            timer = Time.time;            
-        }
-        if (Time.time - timer > 2.0f && timer > 0)
-        {
-            timer = -1.0f;
-            pathIndex = Random.Range(0, PathTarget.Length);
-        }
-        */
+
 
 
         //continuosly update the position, as the target might change or be moved
