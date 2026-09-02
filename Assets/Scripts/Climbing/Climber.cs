@@ -8,7 +8,7 @@ public class Climber : MonoBehaviour
     {
         
     }
-    public float speed = 5f;
+    public float speed = 1;
     public float turnSpeed = 100f;
 
     void LateUpdate()
@@ -42,10 +42,10 @@ public class Climber : MonoBehaviour
             // Rotate object so its 'up' aligns with the hit normal
             Quaternion newRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
             transform.rotation = newRot;
-            //transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.5f);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, newRot, Time.deltaTime * 3);
 
         }
-        else  //flip it? forward diagonal?
+        else if (true) //flip it? forward diagonal?
         {
             dir = transform.up + transform.forward;
             dhit = Physics.Raycast(pos, dir, out hit, 100);
@@ -60,7 +60,7 @@ public class Climber : MonoBehaviour
             }
             else
             {
-                dir = transform.up - transform.forward;
+                dir = -transform.up - transform.forward;
                 dhit = Physics.Raycast(pos, dir, out hit, 100);
                 pos.y = hit.point.y + hit.normal.y;
                 transform.position = pos;
@@ -85,7 +85,8 @@ public class Climber : MonoBehaviour
                 // Rotate object so its 'up' aligns with the hit normal
                 Quaternion newRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
                 transform.rotation = newRot;
-                //transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.5f);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, newRot, Time.deltaTime * 3);
+
 
             }
 
