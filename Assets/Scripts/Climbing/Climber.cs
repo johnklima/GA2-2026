@@ -11,7 +11,7 @@ public class Climber : MonoBehaviour
     public float speed = 5f;
     public float turnSpeed = 100f;
 
-    void Update()
+    void LateUpdate()
     {
         float move = Input.GetAxis("Vertical");
         float turn = Input.GetAxis("Horizontal");
@@ -29,32 +29,63 @@ public class Climber : MonoBehaviour
         Vector3 dir = -transform.up;
         Vector3 pos = transform.position;
 
-        float distanceDown = 0;
-        float distanceForward = 0;
+        float distanceDown = 100;
+        float distanceForward = 100;
         //do down
-        if (Physics.Raycast(pos, dir, out hit, 100))
+        bool dhit = false;
+        dhit = Physics.Raycast(pos, dir, out hit, 100);
+        if (dhit)
         {
             distanceDown = hit.distance;
             pos.y = hit.point.y + hit.normal.y;
-            transform.position = pos; 
-            //transform.position = hit.point + hit.normal;
+            transform.position = pos;
             // Rotate object so its 'up' aligns with the hit normal
-            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-        }
+            Quaternion newRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            transform.rotation = newRot;
+            //transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.5f);
 
+        }
+        else  //flip it? forward diagonal?
+        {
+            dir = transform.up + transform.forward;
+            dhit = Physics.Raycast(pos, dir, out hit, 100);
+            if (dhit)
+            {
+                pos.y = hit.point.y + hit.normal.y;
+                transform.position = pos;
+                // Rotate object so its 'up' aligns with the hit normal
+                //interpolated
+                Quaternion newRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+                transform.rotation = newRot;
+            }
+            else
+            {
+                dir = transform.up - transform.forward;
+                dhit = Physics.Raycast(pos, dir, out hit, 100);
+                pos.y = hit.point.y + hit.normal.y;
+                transform.position = pos;
+                // Rotate object so its 'up' aligns with the hit normal
+                //interpolated
+                Quaternion newRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+                transform.rotation = newRot;
+
+            }
+        }
         //do forward
         dir = transform.forward;
-        if (Physics.Raycast(pos, dir, out hit, 1.0f))
+        if (Physics.Raycast(pos, dir, out hit, 100.0f))
         {
             distanceForward = hit.distance;
 
             //who is closer
             if (distanceForward < 0.5f)
             {
-                //pos.y = hit.point.y ;
-                //transform.position = pos + transform.up;
+                pos.y = hit.point.y + hit.normal.y;
+                transform.position = pos;
                 // Rotate object so its 'up' aligns with the hit normal
-                transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+                Quaternion newRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+                transform.rotation = newRot;
+                //transform.rotation = Quaternion.Lerp(transform.rotation, newRot, 0.5f);
 
             }
 
