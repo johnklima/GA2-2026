@@ -11,7 +11,7 @@ public class Climber : MonoBehaviour
     public float speed = 1;
     public float turnSpeed = 100f;
 
-    void LateUpdate()
+    void Update()
     {
         float move = Input.GetAxis("Vertical");
         float turn = Input.GetAxis("Horizontal");
