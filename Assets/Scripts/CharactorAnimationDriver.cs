@@ -9,7 +9,7 @@ public class CharactorAnimationDriver : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        agent = transform.GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
 

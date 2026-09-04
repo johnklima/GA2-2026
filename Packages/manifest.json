@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.alteruna.multiplayer": "https://github.com/Alteruna/multiplayer-sdk-unity-package.git",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.collab-proxy": "2.11.2",
     "com.unity.ide.rider": "3.0.38",

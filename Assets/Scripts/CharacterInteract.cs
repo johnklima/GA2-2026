@@ -23,7 +23,7 @@ public class CharacterInteract : MonoBehaviour
 
             //pick a free formation point to follow
             Transform formation = other.transform.GetChild(0);
-            Transform usethis = other.transform;
+            Transform usethis = other.transform.parent;  //alteruna avatar
 
             foreach (Transform F in formation)
             {

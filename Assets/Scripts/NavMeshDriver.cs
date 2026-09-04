@@ -16,13 +16,12 @@ public class NavMeshDriver : MonoBehaviour
     //zero state is path following
     public int State = 0;
 
-    private float timer = -1.0f;
 
     //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //get the agent
-        agent = GetComponent<NavMeshAgent>();
+        //get the agent from Alteruna Avatar
+        agent = transform.GetComponent<NavMeshAgent>();
 
         //tell it where to go first
         if(PathTarget.Length > 0)

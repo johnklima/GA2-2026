@@ -825,7 +825,8 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Standalone: ALTERUNA;ALTERUNA_REGISTERED;ALTERUNA_V_2_X_X_X;ALTERUNA_V_2_1_X_X;ALTERUNA_V_2_1_3_X;ALTERUNA_V_2_1_3_5
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
