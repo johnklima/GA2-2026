@@ -4245,7 +4245,7 @@ GameObject:
   - component: {fileID: 1350131362}
   m_Layer: 0
   m_Name: Multiplayer Manager
-  m_TagString: Untagged
+  m_TagString: NetworkManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6099,6 +6099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelect
   Multiplayer: {fileID: 1350131359}
   debug: {fileID: 1563087318}
+  spawner: {fileID: 0}
 --- !u!1 &1895412587
 GameObject:
   m_ObjectHideFlags: 0

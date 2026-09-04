@@ -1,12 +1,24 @@
+using Alteruna.Multiplayer.Core;
+using Alteruna.Multiplayer.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComplexOrbitCamera : MonoBehaviour
+public class ComplexOrbitCamera : CommunicationBridge
 {
 
     public Camera pointCam;
     public Transform moveTarget;
+
+    //will happen after Awake but before Start
+    //called when player enters room
+    public override void Possessed(bool isMe, User user)
+    {
+        // disables this script for remote players MAGIC!
+        enabled = isMe;
+    }
+
+
 
     // Start is called before the first frame update
     void Start()

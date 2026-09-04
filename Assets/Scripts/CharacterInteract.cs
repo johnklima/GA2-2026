@@ -1,7 +1,9 @@
+using Alteruna.Multiplayer.Core;
+using Alteruna.Multiplayer.Unity;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterInteract : MonoBehaviour
+public class CharacterInteract : CommunicationBridge
 {
 
     public string dialog;
@@ -10,7 +12,14 @@ public class CharacterInteract : MonoBehaviour
     public CurrentDialog DialogTree;
     public Transform Character;
     public Transform Branch;
-    
+
+    //will happen after Awake but before Start
+    //called when player enters room
+    public override void Possessed(bool isMe, User user)
+    {
+        // disables this script for remote players
+        enabled = isMe;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

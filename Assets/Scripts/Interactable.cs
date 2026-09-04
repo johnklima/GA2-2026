@@ -1,7 +1,9 @@
+using Alteruna.Multiplayer.Core;
+using Alteruna.Multiplayer.Unity;
 using UnityEngine;
 using UnityEngine.UI;
 //ABstract for all interactables, you can NOT plop this on an object, you need a concrete
-public abstract class Interactable : MonoBehaviour
+public abstract class Interactable : CommunicationBridge
 {
     public string popMsg;
     public GameObject popup;
@@ -14,6 +16,13 @@ public abstract class Interactable : MonoBehaviour
         Init();
     }
 
+    //will happen after Awake but before Start
+    //called when player enters room
+    public override void Possessed(bool isMe, User user)
+    {
+        // disables this script for remote players
+        enabled = isMe;
+    }
 
     //overideable replacement for start
     public virtual void Init()  

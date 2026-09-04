@@ -1,8 +1,10 @@
+using Alteruna.Multiplayer.Core;
+using Alteruna.Multiplayer.Unity;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
-public class AvatarNavMeshDriver : MonoBehaviour
+public class AvatarNavMeshDriver : CommunicationBridge
 {
     //the agent
     NavMeshAgent agent;
@@ -16,6 +18,13 @@ public class AvatarNavMeshDriver : MonoBehaviour
     //zero state is path following
     public int State = 0;
 
+    //will happen after Awake but before Start
+    //called when player enters room
+    public override void Possessed(bool isMe, User user)
+    {
+        // disables this script for remote players
+        enabled = isMe;
+    }
 
     //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
