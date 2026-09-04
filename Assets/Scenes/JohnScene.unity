@@ -5723,6 +5723,7 @@ GameObject:
   - component: {fileID: 1882064811}
   - component: {fileID: 1882064813}
   - component: {fileID: 1882064814}
+  - component: {fileID: 1882064815}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Untagged
@@ -5897,6 +5898,7 @@ MonoBehaviour:
   Multiplayer: {fileID: 1350131359}
   Prefabs:
   - {fileID: 480051123268682200, guid: 1b37f67dcae818b49a576efa6967508b, type: 3}
+  - {fileID: 480051123268682200, guid: 39d5c17840f78be44ae92336a05b4fdb, type: 3}
 --- !u!195 &1882064813
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5934,6 +5936,37 @@ MonoBehaviour:
   PathTarget: []
   MainTarget: {fileID: 514095853}
   State: 2
+--- !u!114 &1882064815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882064803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181c6e678b821f544b8de49c5374f2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Multiplayer: {fileID: 0}
+  _uidString: 5aa05ed0-6344-4674-8fb7-e55deda0d931
+  BucketBehaviors:
+  - Name: Min
+    NetLOD: 0
+    Frequency: -1
+  - Name: Low
+    NetLOD: 1
+    Frequency: 10
+  - Name: Mid
+    NetLOD: 2
+    Frequency: 30
+  - Name: High
+    NetLOD: 3
+    Frequency: 50
+  - Name: Max
+    NetLOD: 4
+    Frequency: 120
+  Reliability: 2
 --- !u!1 &1895412587
 GameObject:
   m_ObjectHideFlags: 0
