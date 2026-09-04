@@ -50,7 +50,8 @@ public class AvatarNavMeshDriver : MonoBehaviour
     }
     void SetDestinationToMainTarget()
     {
-        agent.SetDestination(MainTarget.position);
+        if(MainTarget)
+            agent.SetDestination(MainTarget.position);
     }
 
 
