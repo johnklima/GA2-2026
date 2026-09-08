@@ -18,7 +18,6 @@ public abstract class Interactable : MonoBehaviour
     //overideable replacement for start
     public virtual void Init()  
     {
- 
         popup = Manipulator.popup;
         popup.SetActive(false);     
     }
