@@ -17,9 +17,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 263
-      y: 295
-      width: 475
-      height: 2220
+      y: 307
+      width: 476
+      height: 2661
     contents:
     - model: {fileID: 8926484042661614700}
       id: 0
@@ -38,9 +38,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: -149
-    y: 295
+    y: 307
     width: 889
-    height: 2674
+    height: 2661
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614703}
-  m_UIPosition: {x: 289, y: 354}
+  m_UIPosition: {x: 289, y: 367}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -744,7 +744,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":128.0,"g":53.64202880859375,"b":27.60784149169922,"a":1.0},"time":0.4589913785457611},{"color":{"r":3.893781900405884,"g":2.0839827060699465,"b":0.00849875621497631,"a":1.0},"time":0.5683527588844299}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":0.800000011920929},{"alpha":0.0,"time":1.0}],"gradientMode":2}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":128.0,"g":53.64202880859375,"b":27.60784149169922,"a":1.0},"time":0.4628976881504059},{"color":{"r":3.893781900405884,"g":2.0839827060699465,"b":0.00849875621497631,"a":1.0},"time":0.5722590684890747}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":0.800000011920929},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: -1
   m_Property:
     name: Color
@@ -1873,7 +1873,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.5
+      m_SerializableObject: 0.3
     m_Space: -1
   m_Property:
     name: dragCoefficient
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614958}
   - {fileID: 8926484042661614973}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614957}
   m_MasterData:
@@ -2092,7 +2092,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.TArcSphere, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"sphere":{"transform":{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}},"radius":0.15000000596046449},"arc":6.28000020980835}'
+      m_SerializableObject: '{"sphere":{"transform":{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}},"radius":0.5},"arc":6.28000020980835}'
     m_Space: 0
   m_Property:
     name: arcSphere
@@ -2119,7 +2119,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614959}
   - {fileID: 8926484042661614972}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614957}
   m_MasterData:
@@ -2930,7 +2930,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.016666412353515626,"value":0.03333282470703125,"inTangent":2.0,"outTangent":2.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.32571643590927126,"value":0.9927308559417725,"inTangent":-0.14378109574317933,"outTangent":-0.14378109574317933,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.975006103515625,"value":0.012500762939453125,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.016666412353515626,"value":0.03333282470703125,"inTangent":2.0,"outTangent":2.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.32571643590927126,"value":0.9927308559417725,"inTangent":-0.14378109574317933,"outTangent":-0.14378109574317933,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.7507377862930298,"value":0.7796170711517334,"inTangent":3.725667715072632,"outTangent":3.725667715072632,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.975006103515625,"value":0.012500762939453125,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: -1
   m_Property:
     name: Alpha

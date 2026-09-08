@@ -27,7 +27,9 @@ public class ExplodeStuntPlane : MonoBehaviour
                 Rigidbody rb = part.GetComponent<Rigidbody>();
                 rb.isKinematic = false;
                 impulse = new Vector3(Random.Range(-10, 10), Random.Range(3, 10), Random.Range(-10, 10));
-                rb.AddForce(impulse, ForceMode.Impulse);
+                rb.AddForce(impulse,  ForceMode.Impulse);
+                part.parent = null;
+                
             }
             
             transform.GetComponent<Rigidbody>().isKinematic = false;
@@ -39,6 +41,9 @@ public class ExplodeStuntPlane : MonoBehaviour
             ExplosionVFX.pause = false;
 
             particles.Play();
+
+            //play sound
+
         }
         
     }
