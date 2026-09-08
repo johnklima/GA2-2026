@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.VFX;
-
+using FMODUnity;
 public class ExplodeStuntPlane : MonoBehaviour
 {
     public VisualEffect ExplosionVFX;
     public ParticleSystem particles;
     public bool explode;
+    public StudioEventEmitter emitter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +23,8 @@ public class ExplodeStuntPlane : MonoBehaviour
 
             explode = false;
 
+
+
             foreach (Transform part in transform)
             {
                 Rigidbody rb = part.GetComponent<Rigidbody>();
@@ -34,7 +37,9 @@ public class ExplodeStuntPlane : MonoBehaviour
             
             transform.GetComponent<Rigidbody>().isKinematic = false;
             impulse = new Vector3(Random.Range(-10, 10), Random.Range(5, 10), Random.Range(-10, 10));
-            transform.GetComponent<Rigidbody>().AddForce(impulse, ForceMode.Impulse);
+            transform.GetComponent<Rigidbody>().AddExplosionForce(10, transform.position, 30.0f);
+
+            //transform.GetComponent<Rigidbody>().AddForce(impulse, ForceMode.Impulse);
 
             //play explosion VFX
             ExplosionVFX.Reinit();
@@ -43,6 +48,8 @@ public class ExplodeStuntPlane : MonoBehaviour
             particles.Play();
 
             //play sound
+            if(!emitter.IsPlaying())
+                emitter.Play();
 
         }
         

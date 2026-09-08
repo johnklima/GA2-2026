@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{83ca3e9f-3ce7-4dcc-84ef-099e260cfaac}">
+		<property name="assetPath">
+			<value>M_combat_explosion_1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.706666666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dda3dc05-382c-428b-bb87-3034a43ea7c7}</destination>
+		</relationship>
+	</object>
+</objects>

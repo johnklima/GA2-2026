@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{974d0f84-7805-4ce2-aa5d-ab2168a9954d}">
+		<property name="assetPath">
+			<value>Unity_Space_2018_Combat_2.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>48.9230625</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dda3dc05-382c-428b-bb87-3034a43ea7c7}</destination>
+		</relationship>
+	</object>
+</objects>

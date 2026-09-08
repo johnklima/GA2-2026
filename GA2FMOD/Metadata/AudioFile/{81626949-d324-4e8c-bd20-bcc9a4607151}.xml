@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{81626949-d324-4e8c-bd20-bcc9a4607151}">
+		<property name="assetPath">
+			<value>rattle_for_steps_slow_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.83558333333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dda3dc05-382c-428b-bb87-3034a43ea7c7}</destination>
+		</relationship>
+	</object>
+</objects>

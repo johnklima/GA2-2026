@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{f7bc3294-a2bf-4315-8bd8-6bf1d4e17397}">
+		<property name="assetPath">
+			<value>Bluezone_BC0299_electricity_transformer_hum_low_003.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>36</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{dda3dc05-382c-428b-bb87-3034a43ea7c7}</destination>
+		</relationship>
+	</object>
+</objects>
