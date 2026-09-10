@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Baseline
+  m_Name: Shader Graphs_SG_Baseline
   m_Shader: {fileID: -6465566751694194690, guid: a043f0fbf4bf4c24686ac0682c3a7851, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
