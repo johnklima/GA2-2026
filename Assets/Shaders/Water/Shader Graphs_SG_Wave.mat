@@ -78,8 +78,8 @@ Material:
     - _QueueOffset: 0
     - _RoughMix: 1
     - _ScrollSpeedX: 0
-    - _ScrollSpeedY: 0.001
-    - _WaveHeight: 1.66
+    - _ScrollSpeedY: 0.01
+    - _WaveHeight: 1.06
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

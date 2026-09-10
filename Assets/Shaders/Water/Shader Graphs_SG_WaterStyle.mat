@@ -38,23 +38,23 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AmbientOcclusion:
-        m_Texture: {fileID: 2800000, guid: d69c63025b4be8043b7fa3c3cd6bc280, type: 3}
+        m_Texture: {fileID: 2800000, guid: ffce870132a91be478c63f4f4c5acd0c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Color:
-        m_Texture: {fileID: 2800000, guid: f89d6f677f1cc4b418a0c4bcfe05ba90, type: 3}
+        m_Texture: {fileID: 2800000, guid: d72c64e7d71362546a0e6c26e18c172a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Displacement:
-        m_Texture: {fileID: 2800000, guid: 65e0c93c41dbb9046a73f81a70392335, type: 3}
+        m_Texture: {fileID: 2800000, guid: e22ab45d07d72fd47a417f9dedd8fc41, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 67c310869d179314da1eac1550711772, type: 3}
+        m_Texture: {fileID: 2800000, guid: d74da2dc37f33ee4fb28c669636dd46a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Roughness:
-        m_Texture: {fileID: 2800000, guid: ea4fe2d1cfc1e1746a3e105c68f4c5a9, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -72,14 +72,19 @@ Material:
     m_Ints: []
     m_Floats:
     - _AOMix: 1
-    - _ColorMix: 1
+    - _ColorMix: 1.4
     - _NormMix: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RoughMix: 1
-    - _ScrollSpeedX: 0
-    - _ScrollSpeedY: 0.1
-    - _WaveHeight: 0.5
-    m_Colors: []
+    - _ScrollSpeedX: 1
+    - _ScrollSpeedY: 1
+    - _WaterDepth: 0.49
+    - _WaveHeight: 1.52
+    m_Colors:
+    - _DeepColor: {r: 0.10865856, g: 0.111982964, b: 0.8427672, a: 0}
+    - _ShallowColor: {r: 0.68551475, g: 0.76249456, b: 0.8616352, a: 0}
+    - _Tiling: {r: 10, g: 10, b: 0, a: 0}
+    - _Vector2: {r: 3, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
