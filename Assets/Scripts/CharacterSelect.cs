@@ -2,11 +2,13 @@ using Alteruna.Multiplayer.Core;
 using Alteruna.Multiplayer.Unity;
 using UnityEngine;
 using UnityEngine.UI;
-public class CharacterSelect : CommunicationBridge
+public class CharacterSelect : AttributesSync
 {
     public Text debug;
     public Spawner spawner = null;
     
+    private UniqueAvatarChild avatarChild;
+
     //will happen after Awake but before Start
     //called when player enters room
     public override void Possessed(bool isMe, User user)
@@ -18,6 +20,9 @@ public class CharacterSelect : CommunicationBridge
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //get the avatar child so we can change it
+        avatarChild = GetComponent<UniqueAvatarChild>();
+
         //get the spawner from the Multiplayer instance, EZ by tag
         spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
 
@@ -40,5 +45,22 @@ public class CharacterSelect : CommunicationBridge
     void Update()
     {
         
+    }
+    public void ChangeMe(int which) //which is the pos in the array of UniqueAvatarChild
+    {
+        ChangeCharacter(which);
+
+        BroadcastRemoteMethod("ChangeCharacter", which);
+    }
+    [SynchronizableMethod]  
+    void ChangeCharacter(int which)
+    {
+
+        debug.text += "Hello ChangeCharacter \n";
+        {
+            avatarChild.OverwritePrefab(avatarChild.Prefabs[which]);
+        }
+
+
     }
 }
