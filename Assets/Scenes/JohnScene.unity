@@ -543,7 +543,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 2, z: 4}
+  m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &203844586
 GameObject:
@@ -1181,7 +1181,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 2, z: 4}
+  m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &306288590
 MonoBehaviour:
@@ -2344,8 +2344,8 @@ Transform:
   m_GameObject: {fileID: 874032591}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.62, y: 1.74, z: -6.1}
-  m_LocalScale: {x: 1, y: 10, z: 10}
+  m_LocalPosition: {x: 12.62, y: 0.75, z: -6.1}
+  m_LocalScale: {x: 1, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505702790}
@@ -5180,8 +5180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: com.alteruna.multiplayer::Alteruna.Multiplayer.Unity.UniqueAvatarChild
   Multiplayer: {fileID: 1350131359}
   Prefabs:
-  - {fileID: 785907448196759909, guid: 257ed77a8598e0f4da4e7a9ae38db2b3, type: 3}
+  - {fileID: 480051123268682200, guid: 234672cffd898584f990cf68ce744402, type: 3}
   - {fileID: 480051123268682200, guid: 1b37f67dcae818b49a576efa6967508b, type: 3}
+  - {fileID: 480051123268682200, guid: be3387a26f9ca994f84ce718177dd7e2, type: 3}
+  - {fileID: 480051123268682200, guid: bd109434e199ce74ca7f3aa30be0e1b8, type: 3}
 --- !u!195 &1882064813
 NavMeshAgent:
   m_ObjectHideFlags: 0

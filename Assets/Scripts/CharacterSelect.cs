@@ -1,5 +1,6 @@
 using Alteruna.Multiplayer.Core;
 using Alteruna.Multiplayer.Unity;
+using Microsoft.Win32.SafeHandles;
 using UnityEngine;
 using UnityEngine.UI;
 public class CharacterSelect : AttributesSync
@@ -20,6 +21,8 @@ public class CharacterSelect : AttributesSync
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+
         //get the avatar child so we can change it
         avatarChild = GetComponent<UniqueAvatarChild>();
 
@@ -28,8 +31,9 @@ public class CharacterSelect : AttributesSync
 
         //say hello
         int c = Multiplayer.GetUsers().Count;
-        debug.text += ("players: " + c) + "\n";
+        debug.text += ("I'm player: " + c) + "\n";
 
+        
         //spawn a new NavMesh target
         Transform targ = spawner.Spawn(0).gameObject.transform;
         
