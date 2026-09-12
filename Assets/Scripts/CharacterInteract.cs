@@ -22,7 +22,7 @@ public class CharacterInteract : AttributesSync
         {
             
             //pick a free formation point to follow
-            Transform formation = other.transform.GetChild(0);
+            Transform formation = other.transform.GetChild(0);  //BAD - find another way
             Transform usethis = other.transform.parent;  //alteruna avatar
 
             foreach (Transform F in formation)

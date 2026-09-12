@@ -31,7 +31,7 @@ public class CharacterSelect : AttributesSync
 
         //say hello
         int c = Multiplayer.GetUsers().Count;
-        debug.text += ("I'm player: " + c) + "\n";
+        debug.text += ("I am Player: " + c) + "\n";
 
         
         //spawn a new NavMesh target
@@ -46,9 +46,34 @@ public class CharacterSelect : AttributesSync
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
+        //TEST CHARACTER SWAP
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            //get the avatar and swap the player character for who is at formation point 0
+            if(transform.childCount >= 2)
+            {
+                //drill down...
+                Transform character = transform.GetChild(1); //BAD - but that's where it is
+                debug.text += character.name + "\n";
+                Transform formation = character.GetChild(0); //BAD - but that's where it is
+                debug.text += formation.name + "\n";
+                Transform hireling = formation.GetChild(0); //NOT BAD - it's an array
+                debug.text += hireling.name + "\n";
+                Transform occupier = hireling.GetComponent<FormationPoint>().occupier;
+                debug.text += occupier.name + "\n";
+                NPCState npc = occupier.GetComponent<NPCState>();
+                debug.text += "Avatar Child Index " + npc.AvatarChildIndex + "\n";
+
+                //penultimate swap avatar child
+                ChangeMe(npc.AvatarChildIndex);
+
+                //ultimate swap formation occupier to previous avatar child, as NPC
+
+            }
+        }
     }
     public void ChangeMe(int which) //which is the pos in the array of UniqueAvatarChild
     {

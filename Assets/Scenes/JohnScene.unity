@@ -3283,6 +3283,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 009879485c6f5d149bf68a311e47e81f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1474308132}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 009879485c6f5d149bf68a311e47e81f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1474308135}
   m_SourcePrefab: {fileID: 100100000, guid: 009879485c6f5d149bf68a311e47e81f, type: 3}
 --- !u!1 &1327988690
 GameObject:
@@ -3901,6 +3904,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 009879485c6f5d149bf68a311e47e81f, type: 3}
   m_PrefabInstance: {fileID: 1311013411}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1474308135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474308128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35de60e9ff71d41428a3840855f4a21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCState
+  AvatarChildIndex: 3
 --- !u!4 &1519122761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3510097049968602542, guid: b6ddfbfd1ea362c4bb32e531cb6213cb, type: 3}
@@ -4756,6 +4772,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ba213ea84341a747a43b4c97e94df54, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2081766176}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ba213ea84341a747a43b4c97e94df54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2081766182}
   m_SourcePrefab: {fileID: 100100000, guid: 9ba213ea84341a747a43b4c97e94df54, type: 3}
 --- !u!1 &1822258481
 GameObject:
@@ -5180,9 +5199,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: com.alteruna.multiplayer::Alteruna.Multiplayer.Unity.UniqueAvatarChild
   Multiplayer: {fileID: 1350131359}
   Prefabs:
-  - {fileID: 480051123268682200, guid: 234672cffd898584f990cf68ce744402, type: 3}
   - {fileID: 480051123268682200, guid: 1b37f67dcae818b49a576efa6967508b, type: 3}
   - {fileID: 480051123268682200, guid: be3387a26f9ca994f84ce718177dd7e2, type: 3}
+  - {fileID: 480051123268682200, guid: 234672cffd898584f990cf68ce744402, type: 3}
   - {fileID: 480051123268682200, guid: bd109434e199ce74ca7f3aa30be0e1b8, type: 3}
 --- !u!195 &1882064813
 NavMeshAgent:
@@ -6100,6 +6119,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9ba213ea84341a747a43b4c97e94df54, type: 3}
   m_PrefabInstance: {fileID: 1738775770}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2081766182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081766174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35de60e9ff71d41428a3840855f4a21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  AvatarChildIndex: 2
 --- !u!1 &2116198337
 GameObject:
   m_ObjectHideFlags: 0
