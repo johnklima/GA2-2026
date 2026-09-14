@@ -11,6 +11,8 @@ public class CharacterSelect : AttributesSync
     
     private UniqueAvatarChild avatarChild;
 
+    public bool testSwap;
+
     //will happen after Awake but before Start
     //called when player enters room
     public override void Possessed(bool isMe, User user)
@@ -49,6 +51,17 @@ public class CharacterSelect : AttributesSync
     // Update is called once per frame
     private void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Alpha1)) 
+            testSwap = true;
+
+
+        if (testSwap)
+        {
+            testSwap = false;
+            ChangeMe(5);
+
+        }
 
         //CHARACTER SWAP
         if (Input.GetKey(KeyCode.LeftShift))
@@ -118,10 +131,15 @@ public class CharacterSelect : AttributesSync
 
             }
         }
+    
+
+    
     }
+
+
     public GameObject ChangeMe(int which) //which is the pos in the array of UniqueAvatarChild
     {
-        //ChangeCharacter(which);
+        ChangeCharacter(which);
         
         BroadcastRemoteMethod("ChangeCharacter", which);
         return avatarChild.GetAvatarChild();
