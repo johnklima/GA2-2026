@@ -1748,9 +1748,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2.6193829
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8096914, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &6725601168566406621
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1770,7 +1770,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4792853777615009041
