@@ -82,25 +82,32 @@ public class CharacterSelect : AttributesSync
                             {
                                 debug.text += "swaping to " + hit.transform.name + "\n";                                
                                 
+                                //who's there now
                                 NPCState npc = occupier.GetComponent<NPCState>();
                                 debug.text += "Avatar Child Index " + npc.AvatarChildIndex + "\n";
 
-                                //move current player character (as npc) to that slot 
+                                //Get the list
                                 Transform characters = GameObject.FindGameObjectWithTag("Characters").transform;
+                                //find him based on who I was
                                 int myIndex = character.GetComponent<CharacterData>().UniqueAvatarIndex;
                                 Transform newNpc = characters.GetChild(myIndex);
+                                newNpc.gameObject.SetActive(true);
 
                                 debug.text += "New NPC " + newNpc.name + "\n";
                                 
                                 //penultimate swap avatar child
                                 int childIndex = hit.transform.GetComponent<NPCState>().AvatarChildIndex;
                                 
+                                //disble the NPC ghost
+                                hit.transform.gameObject.SetActive(false);
+
                                 GameObject newPlayer = ChangeMe(childIndex);
                                 debug.text += "New Player " + newPlayer.name + "\n";
 
+                                //fire off the NavMeshDriver through it's interactor
                                 CharacterInteract CI = newNpc.GetChild(0).GetComponent<CharacterInteract>();
                                 debug.text += "CI " + CI.Character.name + "\n";
-                                CI.InteractCharacter(newPlayer.transform);
+                                CI.InteractCharacter(newPlayer.transform, true);
 
                             }
                         }

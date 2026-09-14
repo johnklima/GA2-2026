@@ -26,11 +26,11 @@ public class CharacterInteract : AttributesSync
 
             Transform otherTransform = other.transform;
 
-            InteractCharacter(otherTransform);           
+            InteractCharacter(otherTransform, false);           
         }
     }
 
-    public void InteractCharacter(Transform newOwner)
+    public void InteractCharacter(Transform newOwner, bool warp)
     {
         //for character theft, need to remove from other owners formation list
         NPCState npcState = Character.GetComponent<NPCState>();
@@ -41,7 +41,6 @@ public class CharacterInteract : AttributesSync
             npcState.CurrentFormationPoint.uniquePlayerIndex = -1; //blow an error
             npcState.CurrentFormationPoint = null;
         }
-
 
         //pick a free formation point to follow
         Transform formation = newOwner.GetChild(0);  //BAD - find another way
@@ -70,6 +69,10 @@ public class CharacterInteract : AttributesSync
         {
             Character.GetComponent<NavMeshDriver>().MainTarget = usethis;
             Character.GetComponent<NavMeshDriver>().State = 2;
+            if (warp)
+            {
+                Character.position= usethis.position;
+            }
         }
 
     }
