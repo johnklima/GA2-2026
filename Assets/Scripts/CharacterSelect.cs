@@ -2,6 +2,7 @@ using Alteruna.Multiplayer.Core;
 using Alteruna.Multiplayer.Unity;
 using Microsoft.Win32.SafeHandles;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 public class CharacterSelect : AttributesSync
 {
@@ -49,38 +50,76 @@ public class CharacterSelect : AttributesSync
     private void Update()
     {
 
-        //TEST CHARACTER SWAP
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            //get the avatar and swap the player character for who is at formation point 0
-            if(transform.childCount >= 2)
+        //CHARACTER SWAP
+        if (Input.GetKey(KeyCode.LeftShift))
+        {           
+
+            if (Input.GetMouseButtonDown(0))
             {
-                //drill down...
-                Transform character = transform.GetChild(1); //BAD - but that's where it is
-                debug.text += character.name + "\n";
-                Transform formation = character.GetChild(0); //BAD - but that's where it is
-                debug.text += formation.name + "\n";
-                Transform hireling = formation.GetChild(0); //NOT BAD - it's an array
-                debug.text += hireling.name + "\n";
-                Transform occupier = hireling.GetComponent<FormationPoint>().occupier;
-                debug.text += occupier.name + "\n";
-                NPCState npc = occupier.GetComponent<NPCState>();
-                debug.text += "Avatar Child Index " + npc.AvatarChildIndex + "\n";
+                int layerMask = 1 << 10; //NPCs
 
-                //penultimate swap avatar child
-                ChangeMe(npc.AvatarChildIndex);
+                RaycastHit hit;
 
-                //ultimate swap formation occupier to previous avatar child, as NPC
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit, 1000, layerMask))
+                {
+                    Debug.Log("try swap character " + hit.transform.name);
+                    
+                    //drill down...
+                    Transform character = transform.GetChild(1); //BAD - but that's where the character is
+                    debug.text += character.name + "\n";
+                    Transform formation = character.GetChild(0); //BAD - but that's where the formation is
+                    debug.text += formation.name + "\n";
+                    
+                    //find it in my list of formation points
+                    foreach (Transform point in formation)
+                    {
+                        if(point.GetComponent<FormationPoint>().occupier != null)
+                        {
+                            Transform occupier = point.GetComponent<FormationPoint>().occupier;
+                            if (occupier == hit.transform)
+                            {
+                                debug.text += "swaping to " + hit.transform.name + "\n";                                
+                                
+                                NPCState npc = occupier.GetComponent<NPCState>();
+                                debug.text += "Avatar Child Index " + npc.AvatarChildIndex + "\n";
+
+                                //move current player character (as npc) to that slot 
+                                Transform characters = GameObject.FindGameObjectWithTag("Characters").transform;
+                                int myIndex = character.GetComponent<CharacterData>().UniqueAvatarIndex;
+                                Transform newNpc = characters.GetChild(myIndex);
+
+                                debug.text += "New NPC " + newNpc.name + "\n";
+                                
+                                //penultimate swap avatar child
+                                int childIndex = hit.transform.GetComponent<NPCState>().AvatarChildIndex;
+                                
+                                GameObject newPlayer = ChangeMe(childIndex);
+                                debug.text += "New Player " + newPlayer.name + "\n";
+
+                                CharacterInteract CI = newNpc.GetChild(0).GetComponent<CharacterInteract>();
+                                debug.text += "CI " + CI.Character.name + "\n";
+                                CI.InteractCharacter(newPlayer.transform);
+
+                            }
+                        }
+                        
+                    }
+                    
+                }
 
             }
         }
     }
-    public void ChangeMe(int which) //which is the pos in the array of UniqueAvatarChild
+    public GameObject ChangeMe(int which) //which is the pos in the array of UniqueAvatarChild
     {
-        ChangeCharacter(which);
-
+        //ChangeCharacter(which);
+        
         BroadcastRemoteMethod("ChangeCharacter", which);
+        return avatarChild.GetAvatarChild();
     }
+    
     [SynchronizableMethod]  
     void ChangeCharacter(int which)
     {
@@ -90,6 +129,6 @@ public class CharacterSelect : AttributesSync
             avatarChild.OverwritePrefab(avatarChild.Prefabs[which]);
         }
 
-
+        
     }
 }

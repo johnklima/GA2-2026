@@ -29,7 +29,8 @@ public class ComplexOrbitCamera : CommunicationBridge
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        //left shift is for character select
+        if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftShift) )
         {
 
             // Bit shift the index of the layer to get a bit mask

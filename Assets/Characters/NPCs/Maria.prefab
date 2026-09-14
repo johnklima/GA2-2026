@@ -552,7 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3598392900640119147}
   - component: {fileID: 5834643184491510453}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Maria_J_J_Ong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1805,9 +1805,10 @@ GameObject:
   - component: {fileID: 9261795027512679}
   - component: {fileID: 1924433057417549279}
   - component: {fileID: 8529742058167748237}
-  m_Layer: 0
+  - component: {fileID: 6754288019692656638}
+  m_Layer: 10
   m_Name: Maria
-  m_TagString: Untagged
+  m_TagString: NPCs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1825,9 +1826,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7114595301367199770}
   - {fileID: 3598392900640119147}
   - {fileID: 1711694433113624592}
-  - {fileID: 7114595301367199770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &4475201307259269358
@@ -1925,6 +1926,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6754288019692656638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667503847826234832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35de60e9ff71d41428a3840855f4a21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCState
+  AvatarChildIndex: 0
+  CurrentFormationPoint: {fileID: 0}
 --- !u!1 &7698533476834017828
 GameObject:
   m_ObjectHideFlags: 0

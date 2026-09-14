@@ -1021,9 +1021,9 @@ GameObject:
   - component: {fileID: 8160904640072933842}
   - component: {fileID: 7899030714077346164}
   - component: {fileID: 2133706939837115832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Big Vegas
-  m_TagString: Untagged
+  m_TagString: NPCs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1041,12 +1041,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5178298301888354072}
   - {fileID: 7544648383375668930}
   - {fileID: 781213560730507254}
   - {fileID: 4895282769550223425}
   - {fileID: 190109820832919073}
   - {fileID: 4549885622867216656}
-  - {fileID: 5178298301888354072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7037840538205030642
@@ -1157,6 +1157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   AvatarChildIndex: 0
+  CurrentFormationPoint: {fileID: 0}
 --- !u!1 &3357861196464573475
 GameObject:
   m_ObjectHideFlags: 0

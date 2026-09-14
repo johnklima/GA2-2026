@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4552508815306263100}
   - component: {fileID: 3173174955666647750}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ch24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1635,9 +1635,10 @@ GameObject:
   - component: {fileID: 4282781073723213475}
   - component: {fileID: 1174619004255904430}
   - component: {fileID: 8167280428621420435}
-  m_Layer: 0
+  - component: {fileID: -7765996834231674580}
+  m_Layer: 10
   m_Name: Ninja
-  m_TagString: Untagged
+  m_TagString: NPCs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1655,9 +1656,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1436587928276217878}
   - {fileID: 4552508815306263100}
   - {fileID: 664949927984664724}
-  - {fileID: 1436587928276217878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &714179120853627912
@@ -1755,6 +1756,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-7765996834231674580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756430887639794841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35de60e9ff71d41428a3840855f4a21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCState
+  AvatarChildIndex: 0
+  CurrentFormationPoint: {fileID: 0}
 --- !u!1 &5792583497921004926
 GameObject:
   m_ObjectHideFlags: 0

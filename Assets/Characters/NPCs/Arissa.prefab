@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1424858920714527527}
   - component: {fileID: 2140212552081958859}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: arissa:Body_Geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2029267856430165337}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: arissa:Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,9 +755,9 @@ GameObject:
   - component: {fileID: 7530749165888866285}
   - component: {fileID: 4492785683269378217}
   - component: {fileID: 1094541835307854174}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arissa
-  m_TagString: Untagged
+  m_TagString: NPCs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,9 +775,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4551862011559330586}
   - {fileID: 2029267856430165337}
   - {fileID: 7576984467096174445}
-  - {fileID: 4551862011559330586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6611355776525053032
@@ -865,6 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCState
   AvatarChildIndex: 3
+  CurrentFormationPoint: {fileID: 0}
 --- !u!136 &1094541835307854174
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1156,7 +1157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8038552658572221448}
   - component: {fileID: 981755547251416967}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: arissa:Cloak_Geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2248,7 +2249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6402015500442466070}
   - component: {fileID: 2538724216885626817}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: arissa:Skirt_Geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2444,7 +2445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7952094288761571802}
   - component: {fileID: 1900037603945216019}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: arissa:Weapons_Geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

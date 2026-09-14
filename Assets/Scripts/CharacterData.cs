@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public class NPCState : MonoBehaviour
+public class CharacterData : MonoBehaviour
 {
-    public int AvatarChildIndex;  //where am I in the list of unique avatars
-    
-    public FormationPoint CurrentFormationPoint;
-    
+
+    public int UniqueAvatarIndex = -1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

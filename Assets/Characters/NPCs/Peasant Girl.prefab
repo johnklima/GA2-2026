@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5782989377695597916}
   - component: {fileID: 1439776263039114944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Peasant_girl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,9 +690,10 @@ GameObject:
   - component: {fileID: 4489834408307159387}
   - component: {fileID: 7452469957098029907}
   - component: {fileID: 2681126456544782432}
-  m_Layer: 0
+  - component: {fileID: 6945396173507935356}
+  m_Layer: 10
   m_Name: Peasant Girl
-  m_TagString: Untagged
+  m_TagString: NPCs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,9 +711,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3187219856979760779}
   - {fileID: 5351452793626557494}
   - {fileID: 5782989377695597916}
-  - {fileID: 3187219856979760779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2962596645493627344
@@ -810,6 +811,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6945396173507935356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3301445202570269451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35de60e9ff71d41428a3840855f4a21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCState
+  AvatarChildIndex: 0
+  CurrentFormationPoint: {fileID: 0}
 --- !u!1 &3469979046631462423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterInteract
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: f5b40bcd-28f5-4148-b3f7-a433b8fc11b7
   Reliability: 1
   LocalMethodBehavior: 1
   Character: {fileID: 7761478908836210893}

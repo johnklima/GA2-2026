@@ -50,7 +50,8 @@ public class NavMeshDriver : MonoBehaviour
     }
     void SetDestinationToMainTarget()
     {
-        agent.SetDestination(MainTarget.position);
+        if(MainTarget != null) 
+            agent.SetDestination(MainTarget.position);
     }
 
 

@@ -1104,7 +1104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239968953319270120}
   - component: {fileID: 2295359256753283492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vampire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1681,9 +1681,9 @@ GameObject:
   - component: {fileID: 4792853777615009041}
   - component: {fileID: 1661480809525231719}
   - component: {fileID: 1415706627895082997}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vampire
-  m_TagString: Untagged
+  m_TagString: NPCs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1701,9 +1701,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 338155120413965689}
   - {fileID: 9032279204255279069}
   - {fileID: 2239968953319270120}
-  - {fileID: 338155120413965689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &489084771112811642
@@ -1814,6 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   AvatarChildIndex: 2
+  CurrentFormationPoint: {fileID: 0}
 --- !u!1 &3997489528116806384
 GameObject:
   m_ObjectHideFlags: 0

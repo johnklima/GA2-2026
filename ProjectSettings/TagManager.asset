@@ -8,6 +8,8 @@ TagManager:
   - Lore
   - Target
   - NetworkManager
+  - NPCs
+  - Characters
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - 
   - Ground
   - Interact
-  - 
+  - NPCs
   - 
   - 
   - 
