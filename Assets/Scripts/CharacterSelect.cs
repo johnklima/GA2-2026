@@ -117,10 +117,14 @@ public class CharacterSelect : AttributesSync
                                 GameObject newPlayer = ChangeMe(childIndex);
                                 debug.text += "New Player " + newPlayer.name + "\n";
 
+                                //smash the new NPC into the player, works in older version.
+                                newNpc.position = transform.position;
+
+
                                 //fire off the NavMeshDriver through it's interactor
-                                CharacterInteract CI = newNpc.GetChild(0).GetComponent<CharacterInteract>();
-                                debug.text += "CI " + CI.Character.name + "\n";
-                                CI.InteractCharacter(newPlayer.transform, true);
+                                //CharacterInteract CI = newNpc.GetChild(0).GetComponent<CharacterInteract>();
+                                //debug.text += "CI " + CI.Character.name + "\n";
+                                //CI.InteractCharacter(newPlayer.transform, true);
 
                             }
                         }
