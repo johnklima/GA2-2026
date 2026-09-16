@@ -16,9 +16,12 @@ public class ModultateCloud : MonoBehaviour
         {
             Vector3 P = hit.point;
 
-            transform.position = P + transform.localScale / 2.0f;
+            transform.position = P + transform.localScale / 2.0f ;  //and by what additional scalar?
             //mult the quats to align to surface norm
             Quaternion targetRotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+
+            //slerp it or just set it?
+            transform.rotation = targetRotation;    
 
         }
 
