@@ -10,9 +10,7 @@ public class ModultateCloud : MonoBehaviour
         //snap to ground
         int layerMask = 1 << 8; //Ground
 
-        RaycastHit hit;
-
-       
+        RaycastHit hit;       
 
         if (Physics.Raycast(transform.position + Vector3.up * 2, Vector3.down, out hit, 1000, layerMask))
         {
