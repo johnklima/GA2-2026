@@ -1,0 +1,65 @@
+#pragma kernel CSMain
+
+Texture2D<float> Source;
+SamplerState linearClampSampler;
+RWTexture2D<float> Result;
+
+uint _Resolution;
+float2 _PlayerPos;      // UV space
+float2 _PlayerVel;      // UV per second
+float _PlayerRadius;    // UV space
+float2 _Wind;           // UV per second
+float _Push, _Swirl, _Regrow;
+float t, dt;
+
+struct Obstacle {
+    float2 position;    // UV space
+    float radius;       // UV space
+};
+
+StructuredBuffer<Obstacle> _Obstacles;
+uint _ObstacleCount;
+
+float Hash(float2 p) {
+    return frac(sin(dot(p, float2(127.1, 311.7))) * 43758.5453);
+}
+
+float Noise(float2 p) {
+    float2 i = floor(p), f = frac(p);
+    f = f * f * (3.0 - 2.0 * f);
+    float a = Hash(i), b = Hash(i + float2(1, 0));
+    float c = Hash(i + float2(0, 1)), d = Hash(i + float2(1, 1));
+    return lerp(lerp(a, b, f.x), lerp(c, d, f.x), f.y);
+}
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID) {
+    if (id.x >= _Resolution || id.y >= _Resolution) return;
+    float2 uv = (id.xy + 0.5) / _Resolution;
+    
+    // Analytic velocity field: wind + radial push away from the player + tangential swirl for the wake
+    float2 toTexel = uv - _PlayerPos;
+    float dist = length(toTexel);
+    float2 dir = toTexel / max(dist, 1e-5);
+    float influence = exp(-dist * dist / (_PlayerRadius * _PlayerRadius * 8.0));
+    float speed = length(_PlayerVel);
+    float2 velocity = _Wind
+        + dir * (speed * _Push * influence)
+        + float2(-dir.y, dir.x) * (speed * _Swirl * influence * sin(t * 3.0 + dist * 60.0));
+    
+    // Semi-Lagrangian advection: back-trace along the velocity and sample where the fog came from
+    float density = Source.SampleLevel(linearClampSampler, uv - velocity * dt, 0);
+    
+    // The player body itself carves a hole in the fog
+    density *= smoothstep(_PlayerRadius * 0.6, _PlayerRadius, dist);
+    
+    // Each obstacle clears a disc; the wind then flows fog around it
+    for (uint i = 0; i < _ObstacleCount; i++) {
+        float obstacleDist = length(uv - _Obstacles[i].position);
+        density *= smoothstep(_Obstacles[i].radius * 0.6, _Obstacles[i].radius, obstacleDist);
+    }
+    
+    // Slowly regrow toward a drifting two-octave noise target so the wake heals over
+    float n = Noise(uv * 6.0 + _Wind * t * 4.0) * 0.65 + Noise(uv * 14.0 - _Wind * t * 2.0) * 0.35;
+    Result[id.xy] = lerp(density, n * n * 1.4, saturate(_Regrow * dt));
+}
