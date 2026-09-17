@@ -49,12 +49,12 @@ Material:
     - _QueueControl: 1
     - _QueueOffset: 0
     - _darknessThreshold: 0.15
-    - _densityScale: 0.6937647
+    - _densityScale: 0.5978937
     - _lightAbsorb: 0.45
     - _lightStepSize: 0.06
     - _numLightSteps: 9.7
-    - _numSteps: 0.6937647
-    - _stepSize: 0.6937647
+    - _numSteps: 0.5978937
+    - _stepSize: 0.5978937
     - _transmittance: 0.83
     m_Colors:
     - _Color: {r: 0.99528295, g: 1, b: 0.99979883, a: 0.9490196}
