@@ -1,10 +1,13 @@
 using Alteruna.Multiplayer.Core;
 using Alteruna.Multiplayer.Unity;
-using Microsoft.Win32.SafeHandles;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
-public class CharacterSelect : AttributesSync
+
+using Alteruna.Multiplayer.Core.MethodArguments;
+using Alteruna.Multiplayer.Core.PacketProcessing;
+
+
+public class CharacterSelect : Synchronizable
 {
     public Text debug;
     public Spawner spawner = null;
@@ -156,8 +159,32 @@ public class CharacterSelect : AttributesSync
         debug.text += "Hello ChangeCharacter \n";
         {
             avatarChild.OverwritePrefab(avatarChild.Prefabs[which]);
+            SetAvatarPrefab(which);
         }
 
         
+    }
+
+    private int _avatarPrefab;
+    public override void DisassembleData(Reader reader, UnserializeInfo info)
+    {
+        debug.text += "net swap D \n";
+        _avatarPrefab = reader.ReadInt();
+        avatarChild.OverwritePrefab(avatarChild.Prefabs[_avatarPrefab]);
+    }
+
+    public override void AssembleData(Writer writer, SerializeInfo info)
+    {
+        debug.text += "net swap A \n";
+        writer.Write(_avatarPrefab);
+    }
+
+    public void SetAvatarPrefab(int index)
+    {
+        
+        _avatarPrefab = index;
+        Commit();
+        SyncUpdate();
+
     }
 }

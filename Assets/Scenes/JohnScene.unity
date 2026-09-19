@@ -5466,8 +5466,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelect
   Multiplayer: {fileID: 1350131359}
   _uidString: e6f30dc6-6227-44e9-be89-082e240aeb03
+  BucketBehaviors:
+  - Name: Min
+    NetLOD: 0
+    Frequency: -1
+  - Name: Low
+    NetLOD: 1
+    Frequency: 10
+  - Name: Mid
+    NetLOD: 2
+    Frequency: 30
+  - Name: High
+    NetLOD: 3
+    Frequency: 50
+  - Name: Max
+    NetLOD: 4
+    Frequency: 120
   Reliability: 1
-  LocalMethodBehavior: 1
   debug: {fileID: 1563087318}
   spawner: {fileID: 0}
   testSwap: 0
