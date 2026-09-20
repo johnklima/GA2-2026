@@ -20,6 +20,7 @@ public class AvatarSynch : Synchronizable
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
         //if (true) Debug.Log("true"); //fires
@@ -34,8 +35,9 @@ public class AvatarSynch : Synchronizable
 
 
     }
-    
-    //nothing seems to happen here
+    */
+
+   
     private int _avatarPrefab;
     public override void DisassembleData(Reader reader, UnserializeInfo info)
     {
@@ -53,8 +55,9 @@ public class AvatarSynch : Synchronizable
     public void SetAvatarPrefab(int index)
     {
         _avatarPrefab = index;
-        Commit();
-        SyncUpdate();
+        //for LOD?
+        //Commit();
+        //SyncUpdate();
         avatarChild.OverwritePrefab(avatarChild.Prefabs[_avatarPrefab]);
         Multiplayer.Sync(this);
     }

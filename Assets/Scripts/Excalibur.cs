@@ -2,12 +2,11 @@ using UnityEngine;
 using System.Collections;
 public class Excalibur : SwordInteractable
 {
-
     public Transform key;
-   
+    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) )
+        if (Input.GetKeyDown(KeyCode.E) )
         {
 
             if (isHovering) 

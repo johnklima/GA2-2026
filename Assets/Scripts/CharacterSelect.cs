@@ -15,7 +15,7 @@ public class CharacterSelect : AttributesSync
     public AvatarSynch synch;
 
     public bool testSwap;
-
+   
     //will happen after Awake but before Start
     //called when player enters room
     public override void Possessed(bool isMe, User user)
@@ -57,34 +57,63 @@ public class CharacterSelect : AttributesSync
         pos.z = 10.0f;
         cam.pointCam.transform.localPosition = pos;
 
-        //spawn fog if first player (GM)
-        if(c==1)
-        {
-            Transform fogroot = spawner.Spawn(1).gameObject.transform;
-            Transform foggy = fogroot.GetChild(0);
-            foggy.GetComponent<FogSimulation>().player = transform;
+        //hide existing fogs spawned by others players
+        var fogs = FindObjectsByType<FogSimulation>(FindObjectsSortMode.None);
 
+        for (int i = 0; i < fogs.Length; i++)
+        {
+            fogs[i].transform.gameObject.SetActive(false);
         }
+
+
+        //spawn fog        
+        Transform fogroot = spawner.Spawn(1).gameObject.transform;
+        Transform foggy = fogroot.GetChild(0);
+        foggy.GetComponent<FogSimulation>().player = transform;
+
+        
 
 
     }
 
+    bool doHides = true;
     // Update is called once per frame
     private void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Alpha1)) 
-            testSwap = true;
+        if (doHides) 
+        { 
+            doHides = false;
+            //hide existing fogs spawned by others players
+            var fogs = FindObjectsByType<FogSimulation>(FindObjectsSortMode.None);
 
+            for (int i = 0; i < fogs.Length; i++)
+            {
+                if (fogs[i].player != transform)
+                    fogs[i].transform.parent.gameObject.SetActive(false);
+            }
+        }
 
-        if (testSwap)
+        //alpha1 is ascii 49, I have 7 characters
+        for (int i = 0;i < 7;i++)
         {
-            testSwap = false;
-            ChangeMe(5);
+            if (Input.GetKeyDown((KeyCode)(49 + i)))
+            {
+                testSwap = true;
+            }
+
+            if (testSwap)
+            {
+                testSwap = false;
+                ChangeMe(i);
+
+                break;
+
+            }
 
         }
 
-        //CHARACTER SWAP
+        //CHARACTER SWAP by Team
         if (Input.GetKey(KeyCode.LeftShift))
         {           
 
