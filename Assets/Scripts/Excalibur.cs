@@ -12,18 +12,21 @@ public class Excalibur : SwordInteractable
 
             if (isHovering) 
             {
-                bool hasKey = false;
-                
-                //check for key in camera
-                Inventory inv = Camera.main.GetComponent<Inventory>();
-                for (int i = 0; i < inv.things.Length; i++) 
-                { 
-                
-                    if(inv.things[i] == key) 
+                bool hasKey = true; //false;  //skip key for now
+
+                //check for key in camera, easy way to find
+                if (false)
+                {
+                    Inventory inv = Camera.main.GetComponent<Inventory>();
+                    for (int i = 0; i < inv.things.Length; i++)
                     {
-                        hasKey = true;
+
+                        if (inv.things[i] == key)
+                        {
+                            hasKey = true;
+                        }
+
                     }
-                       
                 }
 
                 if (hasKey) 
@@ -32,7 +35,7 @@ public class Excalibur : SwordInteractable
                     isInteracting = true;
                     playPull = true;
 
-                    inv.AddToInventory(transform);
+                    //inv.AddToInventory(transform);
                     
                   
                 }
@@ -49,8 +52,10 @@ public class Excalibur : SwordInteractable
     {
         //get over it, not sure why
         base.UnHit();
-        lore.SetActive(false);
-        popup.SetActive(false);
+        if(lore)
+            lore.SetActive(false);
+        if(popup)
+            popup.SetActive(false);
 
     }
 }

@@ -19,7 +19,9 @@ public class ManipulateObject : MonoBehaviour
         int layer = 1 << 9; //interactable
 
         // Create a ray from the center of the viewport(0.5, 0.5)
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        //Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         //TODO: For best performance and clarity, add a "don't raycast unless in
         //      bounding volume" (this might solve other quirks)
@@ -29,12 +31,13 @@ public class ManipulateObject : MonoBehaviour
         {
             // Handle hit object
             Debug.Log("hit " + hit.transform.name);
-
-            //only one at a time thanks!
-            if(currentInteract)
+            //get this interactable
+            Interactable interactable = hit.transform.GetComponent<Interactable>();
+            //only one at a time thanks! UnHit previous, if there is one
+            if(currentInteract && currentInteract != interactable)
                 currentInteract.UnHit();
-
-            currentInteract = hit.transform.GetComponent<Interactable>();
+            //handle new
+            currentInteract = interactable;
             if (currentInteract != null)
             {               
                 currentInteract.Hit();

@@ -6,17 +6,21 @@ public class DoorCollision : MonoBehaviour
     public Transform door;
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "MainCamera") 
+
+        bool haskey = false;
+
+        if (collision.transform.tag == "Player") 
         {
             Debug.Log("cam hit door");
             Inventory inv = collision.transform.GetComponent<Inventory>();
-            bool haskey = false;
+            
             for (int i = 0; i < inv.things.Length; i++)
             {
                 if (inv.things[i] == key)
                     haskey = true;
             }
 
+            haskey = true;
             if (haskey)
             {
                 //play the door amination

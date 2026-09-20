@@ -3,16 +3,16 @@ using Alteruna.Multiplayer.Unity;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Alteruna.Multiplayer.Core.MethodArguments;
-using Alteruna.Multiplayer.Core.PacketProcessing;
 
 
-public class CharacterSelect : Synchronizable
+
+public class CharacterSelect : AttributesSync
 {
     public Text debug;
     public Spawner spawner = null;
     
-    private UniqueAvatarChild avatarChild;
+    public UniqueAvatarChild avatarChild;
+    public AvatarSynch synch;
 
     public bool testSwap;
 
@@ -31,6 +31,7 @@ public class CharacterSelect : Synchronizable
 
         //get the avatar child so we can change it
         avatarChild = GetComponent<UniqueAvatarChild>();
+        synch = GetComponent<AvatarSynch>();
 
         //get the spawner from the Multiplayer instance, EZ by tag
         spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
@@ -48,7 +49,15 @@ public class CharacterSelect : Synchronizable
         
         //and to the camera controller.
         //WARNING: better be at zero!
-        transform.GetChild(0).GetComponent<ComplexOrbitCamera>().moveTarget = targ;
+        ComplexOrbitCamera  cam = transform.GetChild(0).GetComponent<ComplexOrbitCamera>();
+        cam.moveTarget = targ;
+
+        //set its initial pos
+        Vector3 pos = cam.pointCam.transform.localPosition;
+        pos.z = 3.0f;
+        cam.pointCam.transform.localPosition = pos;
+
+
     }
 
     // Update is called once per frame
@@ -120,10 +129,10 @@ public class CharacterSelect : Synchronizable
                                 GameObject newPlayer = ChangeMe(childIndex);
                                 debug.text += "New Player " + newPlayer.name + "\n";
 
-                                //smash the new NPC into the player, works in older version.
+                                //smash the new NPC into the player, works in older version?
                                 newNpc.position = transform.position;
 
-
+                                //the non-collide approach:
                                 //fire off the NavMeshDriver through it's interactor
                                 //CharacterInteract CI = newNpc.GetChild(0).GetComponent<CharacterInteract>();
                                 //debug.text += "CI " + CI.Character.name + "\n";
@@ -146,7 +155,7 @@ public class CharacterSelect : Synchronizable
 
     public GameObject ChangeMe(int which) //which is the pos in the array of UniqueAvatarChild
     {
-        ChangeCharacter(which);
+        //ChangeCharacter(which);
         
         BroadcastRemoteMethod("ChangeCharacter", which);
         return avatarChild.GetAvatarChild();
@@ -158,33 +167,13 @@ public class CharacterSelect : Synchronizable
 
         debug.text += "Hello ChangeCharacter \n";
         {
-            avatarChild.OverwritePrefab(avatarChild.Prefabs[which]);
-            SetAvatarPrefab(which);
+            //avatarChild.OverwritePrefab(avatarChild.Prefabs[which]);
+            synch.SetAvatarPrefab(which);
+            
         }
 
         
     }
 
-    private int _avatarPrefab;
-    public override void DisassembleData(Reader reader, UnserializeInfo info)
-    {
-        debug.text += "net swap D \n";
-        _avatarPrefab = reader.ReadInt();
-        avatarChild.OverwritePrefab(avatarChild.Prefabs[_avatarPrefab]);
-    }
-
-    public override void AssembleData(Writer writer, SerializeInfo info)
-    {
-        debug.text += "net swap A \n";
-        writer.Write(_avatarPrefab);
-    }
-
-    public void SetAvatarPrefab(int index)
-    {
-        
-        _avatarPrefab = index;
-        Commit();
-        SyncUpdate();
-
-    }
+   
 }
