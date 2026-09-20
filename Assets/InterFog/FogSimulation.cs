@@ -5,7 +5,7 @@ public class FogSimulation : MonoBehaviour {
     #region Fields
     [SerializeField] ComputeShader compute;
     [SerializeField] Material fogMaterial;
-    [SerializeField] Transform player;
+    
     [SerializeField] int resolution = 256;
     [SerializeField] float areaSize = 30f;
     [SerializeField] float playerRadius = 1.8f;
@@ -17,6 +17,7 @@ public class FogSimulation : MonoBehaviour {
     RenderTexture[] density;
     int current, kernel, groups;
     Vector3 previousPlayerPos;
+    public Transform player;
 
     public struct ObstacleData {
         public Vector2 position;
@@ -26,6 +27,7 @@ public class FogSimulation : MonoBehaviour {
     ComputeBuffer obstacleBuffer;
     #endregion
 
+    
     void Start() {
         kernel = compute.FindKernel("CSMain");
         groups = Mathf.CeilToInt(resolution / 8f);
@@ -38,15 +40,19 @@ public class FogSimulation : MonoBehaviour {
             };
             density[i].Create();
         }
-        
+      
         previousPlayerPos = player.position;
+        
         InitializeObstacles();
         
         // Prime the field so we start with fully grown fog instead of an empty texture
         for (int i = 0; i < 90; i++) Step(0.1f);
     }
-    
-    void Update() => Step(Time.deltaTime);
+    bool loadMe = true;
+    void Update() 
+    { 
+        Step(Time.deltaTime); 
+    }
 
     void OnDestroy() {
         obstacleBuffer?.Release();
@@ -70,6 +76,10 @@ public class FogSimulation : MonoBehaviour {
     }
 
     void Step(float dt) {
+
+        if (!player)
+            return;
+
         int next = 1 - current;
         Vector2 playerUv = WorldToUv(player.position);
         Vector2 playerVelUv = dt > 0f ? (playerUv - WorldToUv(previousPlayerPos)) / dt : Vector2.zero;

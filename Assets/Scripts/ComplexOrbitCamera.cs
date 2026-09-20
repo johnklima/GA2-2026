@@ -1,9 +1,7 @@
 using Alteruna.Multiplayer.Core;
 using Alteruna.Multiplayer.Unity;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+
 
 public class ComplexOrbitCamera : CommunicationBridge
 {

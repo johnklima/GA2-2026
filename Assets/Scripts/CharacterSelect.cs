@@ -54,8 +54,17 @@ public class CharacterSelect : AttributesSync
 
         //set its initial pos
         Vector3 pos = cam.pointCam.transform.localPosition;
-        pos.z = 3.0f;
+        pos.z = 10.0f;
         cam.pointCam.transform.localPosition = pos;
+
+        //spawn fog if first player (GM)
+        if(c==1)
+        {
+            Transform fogroot = spawner.Spawn(1).gameObject.transform;
+            Transform foggy = fogroot.GetChild(0);
+            foggy.GetComponent<FogSimulation>().player = transform;
+
+        }
 
 
     }
