@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
-
 public class CharacterSelect : AttributesSync
 {
     public Text debug;
@@ -39,7 +37,6 @@ public class CharacterSelect : AttributesSync
         //say hello
         int c = Multiplayer.GetUsers().Count;
         debug.text += ("I am Player: " + c) + "\n";
-
         
         //spawn a new NavMesh target
         Transform targ = spawner.Spawn(0).gameObject.transform;
@@ -94,8 +91,8 @@ public class CharacterSelect : AttributesSync
             }
         }
 
-        //alpha1 is ascii 49, I have 7 characters
-        for (int i = 0;i < 7;i++)
+        //alpha1 is ascii 49, I have 8 characters
+        for (int i = 0; i < 8; i++)
         {
             if (Input.GetKeyDown((KeyCode)(49 + i)))
             {
@@ -191,10 +188,8 @@ public class CharacterSelect : AttributesSync
     }
 
 
-    public GameObject ChangeMe(int which) //which is the pos in the array of UniqueAvatarChild
-    {
-        //ChangeCharacter(which);
-        
+    public GameObject ChangeMe(int which) //which is the index in the array of UniqueAvatarChild
+    {                
         BroadcastRemoteMethod("ChangeCharacter", which);
         return avatarChild.GetAvatarChild();
     }
@@ -204,10 +199,8 @@ public class CharacterSelect : AttributesSync
     {
 
         debug.text += "Hello ChangeCharacter \n";
-        {
-            //avatarChild.OverwritePrefab(avatarChild.Prefabs[which]);
-            synch.SetAvatarPrefab(which);
-            
+        {            
+            synch.SetAvatarPrefab(which);            
         }
 
         
