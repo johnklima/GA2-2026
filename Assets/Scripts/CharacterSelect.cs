@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 
 
-
 public class CharacterSelect : AttributesSync
 {
     public Text debug;
@@ -193,9 +192,8 @@ public class CharacterSelect : AttributesSync
 
     public GameObject ChangeMe(int which) //which is the pos in the array of UniqueAvatarChild
     {
-        //ChangeCharacter(which);
+        ChangeCharacter(which);
         
-        BroadcastRemoteMethod("ChangeCharacter", which);
         return avatarChild.GetAvatarChild();
     }
     
@@ -205,7 +203,7 @@ public class CharacterSelect : AttributesSync
 
         debug.text += "Hello ChangeCharacter \n";
         {
-            //avatarChild.OverwritePrefab(avatarChild.Prefabs[which]);
+            
             synch.SetAvatarPrefab(which);
             
         }
