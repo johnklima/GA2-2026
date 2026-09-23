@@ -1,9 +1,9 @@
-using Alteruna.Multiplayer.Core;
+
 using Alteruna.Multiplayer.Core.MethodArguments;
 using Alteruna.Multiplayer.Core.PacketProcessing;
 using Alteruna.Multiplayer.Unity;
-using UnityEngine;
 using UnityEngine.UI;
+
 public class AvatarSynch : Synchronizable
 {
     public UniqueAvatarChild avatarChild;
