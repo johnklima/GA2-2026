@@ -32,7 +32,7 @@ public class CharacterSelect : AttributesSync
         synch = GetComponent<AvatarSynch>();
 
         //get the spawner from the Multiplayer instance, EZ by tag
-        spawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
+        spawner = Multiplayer.GetComponent<Spawner>();
 
         //say hello
         int c = Multiplayer.GetUsers().Count;

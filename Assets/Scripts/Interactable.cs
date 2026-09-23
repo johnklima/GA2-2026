@@ -28,11 +28,16 @@ public abstract class Interactable : AttributesSync
     public virtual void Init()  
     {
  
-        popup = Manipulator.popup;
-        if (popup != null)
+        if(Manipulator && Manipulator.popup)
         {
-            popup.SetActive(false);
+            popup = Manipulator.popup;
+            if (popup != null)
+            {
+                popup.SetActive(false);
+            }
+
         }
+
     }
 
 
