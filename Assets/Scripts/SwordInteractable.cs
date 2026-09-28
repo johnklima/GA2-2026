@@ -71,7 +71,7 @@ public class SwordInteractable : Interactable
                 //animator.SetTrigger("PullSword");  //as long as the controller has this property
                 Debug.Log("play the animation");   //the animation can be anything
 
-               _aniSync.Play(pullID);        //magically works
+               _aniSync.Play(pullID);        //magically works               
             }
         }
 

@@ -1,27 +1,22 @@
-using Alteruna.Multiplayer.Core;
-using Alteruna.Multiplayer.Unity;
+
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AvatarAnimationDriver : CommunicationBridge
+
+public class AvatarAnimationDriver : MonoBehaviour
 {
     public Animator animator;
     private NavMeshAgent agent;
+    public AnimSynch sync;
 
-
-    //will happen after Awake but before Start
-    //called when player enters room
-    public override void Possessed(bool isMe, User user)
-    {
-        // disables this script for remote players
-        enabled = isMe;
-    }
-
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         agent = transform.parent.GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        sync = GetComponent<AnimSynch>();
+
     }
 
     // Update is called once per frame
@@ -29,7 +24,7 @@ public class AvatarAnimationDriver : CommunicationBridge
     {
 
         animator.SetFloat("Velocity", agent.velocity.magnitude);
-
+        sync.SetAvatarSpeed(agent.velocity.magnitude);
 
     }
 }

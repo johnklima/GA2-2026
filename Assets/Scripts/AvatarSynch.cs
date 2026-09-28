@@ -9,6 +9,7 @@ public class AvatarSynch : Synchronizable
     public UniqueAvatarChild avatarChild;
     public bool doIt;
     public Text debug;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -39,11 +40,13 @@ public class AvatarSynch : Synchronizable
 
    
     private int _avatarPrefab;
+    private float _avatarSpeed;
     public override void DisassembleData(Reader reader, UnserializeInfo info)
     {
         debug.text += "DisassembleData \n";
         _avatarPrefab = reader.ReadInt();
         avatarChild.OverwritePrefab(avatarChild.Prefabs[_avatarPrefab]);
+
     }
 
     public override void AssembleData(Writer writer, SerializeInfo info)
@@ -61,5 +64,6 @@ public class AvatarSynch : Synchronizable
         avatarChild.OverwritePrefab(avatarChild.Prefabs[_avatarPrefab]);
         Multiplayer.Sync(this);
     }
+    
     
 }

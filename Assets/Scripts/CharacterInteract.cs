@@ -24,7 +24,7 @@ public class CharacterInteract : AttributesSync
         if (other.tag == "Player")
         {
 
-            Transform otherTransform = other.transform;
+            Transform otherTransform = other.transform.parent;
 
             InteractCharacter(otherTransform, false);           
         }
@@ -45,8 +45,8 @@ public class CharacterInteract : AttributesSync
         //pick a free formation point to follow
         Transform formation = newOwner.GetChild(0);  //BAD - find another way
 
-        //default to alteruna avatar if formation out of bounds, failsafe for theft
-        Transform usethis = newOwner.parent;
+
+        Transform usethis = newOwner;  //failsafe if there is no free formation point
 
         //find an empty slot in the player's formation list
         foreach (Transform F in formation)
@@ -54,10 +54,10 @@ public class CharacterInteract : AttributesSync
             if (F.GetComponent<FormationPoint>().occupier == null)
             {
                 F.GetComponent<FormationPoint>().occupier = Character;
-                //TDOD: make this better
+               
                 //let the slot know the occupier's avatar child index
                 F.GetComponent<FormationPoint>().uniquePlayerIndex = npcState.AvatarChildIndex;
-                //let the NPC know it's current slot
+                //let the NPC know its current slot
                 npcState.CurrentFormationPoint = F.GetComponent<FormationPoint>();
 
                 usethis = F;

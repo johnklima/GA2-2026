@@ -66,10 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 8434095106060957506}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
       insertIndex: -1
@@ -86,6 +83,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5689730038201523143}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8047215341605458494}
   m_SourcePrefab: {fileID: 100100000, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
 --- !u!1 &480051123268682200 stripped
 GameObject:
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4366618c70c4f994eb79ee79dda8f56d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Multiplayer: {fileID: 0}
   animator: {fileID: 0}
+  sync: {fileID: 0}
 --- !u!136 &6925409613999722227
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -177,70 +177,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   UniqueAvatarIndex: 4
---- !u!4 &1000550464338877282 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
-  m_PrefabInstance: {fileID: 749869291846253705}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &5494100354518473470
-PrefabInstance:
+--- !u!114 &-8047215341605458494
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1000550464338877282}
-    m_Modifications:
-    - target: {fileID: 440195872938652816, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_Name
-      value: AA_Formation
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
---- !u!4 &8434095106060957506 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
-  m_PrefabInstance: {fileID: 5494100354518473470}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480051123268682200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5946f421947b48748a6021c38797650a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimSynch
+  Multiplayer: {fileID: 0}
+  _uidString: 8a1898b2-05fb-47f6-af50-f43c4c0d7fbe
+  BucketBehaviors:
+  - Name: Min
+    NetLOD: 0
+    Frequency: -1
+  - Name: Low
+    NetLOD: 1
+    Frequency: 0
+  - Name: Mid
+    NetLOD: 2
+    Frequency: 0
+  - Name: High
+    NetLOD: 3
+    Frequency: 0
+  - Name: Max
+    NetLOD: 4
+    Frequency: 120
+  Reliability: 2

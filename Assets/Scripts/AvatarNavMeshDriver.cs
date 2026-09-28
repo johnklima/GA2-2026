@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AvatarNavMeshDriver : CommunicationBridge
+public class AvatarNavMeshDriver : AttributesSync
 {
     //the agent
     NavMeshAgent agent;

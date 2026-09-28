@@ -47,8 +47,8 @@ public class CharacterSelect : AttributesSync
         GetComponent<AvatarNavMeshDriver>().MainTarget = targ; 
         
         //and to the camera controller.
-        //WARNING: better be at zero!
-        ComplexOrbitCamera  cam = transform.GetChild(0).GetComponent<ComplexOrbitCamera>();
+        //WARNING: better be at one!
+        ComplexOrbitCamera  cam = transform.GetChild(1).GetComponent<ComplexOrbitCamera>();
         cam.moveTarget = targ;
 
         //set its initial pos
@@ -57,25 +57,27 @@ public class CharacterSelect : AttributesSync
         cam.pointCam.transform.localPosition = pos;
 
         //hide existing fogs spawned by others players
-        var fogs = FindObjectsByType<FogSimulation>(FindObjectsSortMode.None);
-
-        for (int i = 0; i < fogs.Length; i++)
+        if (false)
         {
-            fogs[i].transform.gameObject.SetActive(false);
+            var fogs = FindObjectsByType<FogSimulation>(FindObjectsSortMode.None);
+
+            for (int i = 0; i < fogs.Length; i++)
+            {
+                fogs[i].transform.gameObject.SetActive(false);
+            }
+
+
+            //spawn fog        
+            Transform fogroot = spawner.Spawn(1).gameObject.transform;
+            Transform foggy = fogroot.GetChild(0);
+            foggy.GetComponent<FogSimulation>().player = transform;
+
         }
-
-
-        //spawn fog        
-        Transform fogroot = spawner.Spawn(1).gameObject.transform;
-        Transform foggy = fogroot.GetChild(0);
-        foggy.GetComponent<FogSimulation>().player = transform;
-
-        
 
 
     }
 
-    bool doHides = true;
+    bool doHides = false;
     // Update is called once per frame
     private void Update()
     {
