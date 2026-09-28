@@ -4070,7 +4070,7 @@ PrefabInstance:
       addedObject: {fileID: -3179636741405367484}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5761053793196354918}
+      addedObject: {fileID: -8138297229560606586}
   m_SourcePrefab: {fileID: 100100000, guid: caa3568589d13224d96c7983c3a8df69, type: 3}
 --- !u!1 &480051123268682200 stripped
 GameObject:
@@ -4112,7 +4112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   animator: {fileID: 0}
-  sync: {fileID: 0}
+  NMAdriver: {fileID: 0}
 --- !u!136 &6925409613999722227
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4162,7 +4162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   UniqueAvatarIndex: 7
---- !u!114 &-5761053793196354918
+--- !u!114 &-8138297229560606586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4175,7 +4175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimSynch
   Multiplayer: {fileID: 0}
-  _uidString: d98bbe75-c20d-4bce-9179-fa63e5038a64
+  _uidString: e42719ef-3b4c-4520-b836-7829b933ccf9
   BucketBehaviors:
   - Name: Min
     NetLOD: 0
@@ -4193,6 +4193,7 @@ MonoBehaviour:
     NetLOD: 4
     Frequency: 120
   Reliability: 2
+  ANMdriver: {fileID: 0}
 --- !u!4 &1000550464338877282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: caa3568589d13224d96c7983c3a8df69, type: 3}

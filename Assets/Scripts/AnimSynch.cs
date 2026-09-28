@@ -5,18 +5,19 @@ using UnityEngine;
 
 public class AnimSynch : Synchronizable
 {
-    public Animator animator;
+    public AvatarNavMeshDriver ANMdriver;
     void Awake()
     {
-        animator = GetComponent<Animator>();
+        ANMdriver = transform.parent.GetComponent<AvatarNavMeshDriver>();
+        ANMdriver.synch = this;
     }
 
     float _avatarSpeed;
     public override void DisassembleData(Reader reader, UnserializeInfo info)
     {
-        animator = GetComponent<Animator>();
+       
         _avatarSpeed = reader.ReadFloat();
-        animator.SetFloat("Velocity", _avatarSpeed);
+        ANMdriver.velocityMagnitude = _avatarSpeed;
 
     }
 

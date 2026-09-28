@@ -18,6 +18,9 @@ public class AvatarNavMeshDriver : AttributesSync
     //zero state is path following
     public int State = 0;
 
+    public float velocityMagnitude;
+    public AnimSynch synch;
+
     //will happen after Awake but before Start
     //called when player enters room
     public override void Possessed(bool isMe, User user)
@@ -31,6 +34,7 @@ public class AvatarNavMeshDriver : AttributesSync
     {
         //get the agent from Alteruna Avatar
         agent = transform.GetComponent<NavMeshAgent>();
+        
 
         //tell it where to go first
         if (PathTarget.Length > 0)
@@ -61,6 +65,8 @@ public class AvatarNavMeshDriver : AttributesSync
     {
         if(MainTarget)
             agent.SetDestination(MainTarget.position);
+
+        UpdateVelocity(agent.velocity.magnitude);
     }
 
 
@@ -124,4 +130,13 @@ public class AvatarNavMeshDriver : AttributesSync
         agent.SetDestination(PathTarget[pathIndex].position);
 
     }
+
+    [SynchronizableMethod]
+    void UpdateVelocity(float velmag)
+    {
+        velocityMagnitude = velmag;
+        synch.SetAvatarSpeed(velocityMagnitude);    
+
+    }
+
 }

@@ -3891,15 +3891,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.30601
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17694
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.4811
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4122231794381909436, guid: 7838b97820fa4414dbefe2982dad5743, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6261,6 +6261,10 @@ PrefabInstance:
       propertyPath: Multiplayer
       value: 
       objectReference: {fileID: 1350131359}
+    - target: {fileID: 7285101468893489814, guid: 2ac7c1c287c15364ea13d6b44c1798de, type: 3}
+      propertyPath: _uidString
+      value: 79a3e677-ce59-43dd-87e1-7263588b3ce2
+      objectReference: {fileID: 0}
     - target: {fileID: 7930190122350407482, guid: 2ac7c1c287c15364ea13d6b44c1798de, type: 3}
       propertyPath: Multiplayer
       value: 
