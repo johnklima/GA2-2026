@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public class CharacterSelect : AttributesSync
+public class CharacterSelect : CommunicationBridge  //AttributesSync
 {
     public Text debug;
     public Spawner spawner = null;
@@ -130,11 +130,11 @@ public class CharacterSelect : AttributesSync
                 {
                     Debug.Log("try swap character " + hit.transform.name);
                     
-                    //drill down...
-                    Transform character = transform.GetChild(1); //BAD - but that's where the character is
-                    debug.text += character.name + "\n";
-                    Transform formation = character.GetChild(0); //BAD - but that's where the formation is
+      
+                    Transform formation = transform.GetChild(0); //BAD - but that's where the formation is
                     debug.text += formation.name + "\n";
+
+                    Transform character = transform.GetChild(2); //BAD - but that's where the character is
                     
                     //find it in my list of formation points
                     foreach (Transform point in formation)
@@ -171,7 +171,7 @@ public class CharacterSelect : AttributesSync
                                 //smash the new NPC into the player, works in older version?
                                 newNpc.position = transform.position;
 
-                                //the non-collide approach:
+                                //the non-collide approach: null ref??
                                 //fire off the NavMeshDriver through it's interactor
                                 //CharacterInteract CI = newNpc.GetChild(0).GetComponent<CharacterInteract>();
                                 //debug.text += "CI " + CI.Character.name + "\n";
@@ -199,7 +199,7 @@ public class CharacterSelect : AttributesSync
         return avatarChild.GetAvatarChild();
     }
     
-    [SynchronizableMethod]  
+   // [SynchronizableMethod]  
     void ChangeCharacter(int which)
     {
 

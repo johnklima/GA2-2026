@@ -29,9 +29,12 @@ public class CharacterInteract : AttributesSync
             InteractCharacter(otherTransform, false);           
         }
     }
-
+    int count = 0;
+    [SynchronizableMethod]
     public void InteractCharacter(Transform newOwner, bool warp)
     {
+        Debug.Log("HELLO CI " + newOwner.name + count);
+        count++;
         //for character theft, need to remove from other owners formation list
         NPCState npcState = Character.GetComponent<NPCState>();
 
