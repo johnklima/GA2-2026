@@ -154,7 +154,9 @@ public class CharacterSelect : CommunicationBridge  //AttributesSync
                                 Transform characters = GameObject.FindGameObjectWithTag("Characters").transform;
                                 //find him based on who I was
                                 int myIndex = character.GetComponent<CharacterData>().UniqueAvatarIndex;
+                                //Transform newNpc = spawner.Spawn(myIndex + 2).transform;
                                 Transform newNpc = characters.GetChild(myIndex);
+                                
                                 newNpc.gameObject.SetActive(true);
 
                                 debug.text += "New NPC " + newNpc.name + "\n";
@@ -164,6 +166,7 @@ public class CharacterSelect : CommunicationBridge  //AttributesSync
                                 
                                 //disble the NPC ghost
                                 hit.transform.gameObject.SetActive(false);
+                                
 
                                 GameObject newPlayer = ChangeMe(childIndex);
                                 debug.text += "New Player " + newPlayer.name + "\n";

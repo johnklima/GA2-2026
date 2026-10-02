@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 8534771630842486759}
   - component: {fileID: 2449698946516848390}
   - component: {fileID: 220259197209063091}
+  - component: {fileID: 1506413233845457467}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -488,3 +489,17 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &1506413233845457467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705271525584245230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dfe22f070d16d14d904989953231a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FormationPoint
+  occupier: {fileID: 0}
+  uniquePlayerIndex: 0
